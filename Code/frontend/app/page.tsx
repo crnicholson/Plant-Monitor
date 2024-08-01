@@ -18,8 +18,8 @@ export default function Home() {
     if (response.ok) {
       const data = await response.json();
       console.log('Message sent successfully!');
-      console.log(data);
-      updateResult(data);
+      console.log(data.devices);
+      updateResult(data.devices);
     } else {
       console.error('Error sending message:', response.statusText);
     }

@@ -11,7 +11,7 @@ CORS(app)
 def get_data():
     data = request.get_json()
     print(data["devices"])
-    return data["devices"], 200
+    return data, 200
 
 
 if __name__ == "__main__":
