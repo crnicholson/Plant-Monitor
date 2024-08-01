@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source env/bin/activate
-python3 main.py
+source /home/cnicholson/plant/Code/backend/env/bin/activate
+python3  /home/cnicholson/plant/Code/backend/main.py
