@@ -2,11 +2,15 @@
 
 from flask import Flask, request
 from flask_cors import CORS
+import os
+import json
+
+cwd = os.getcwd()
 
 app = Flask(__name__)
 CORS(app)
 
-devices = {
+sample = [
     {
         "device": 1234,
         "soilHumidity": 50,
@@ -21,13 +25,18 @@ devices = {
         "temperature": 20,
         "pressure": 1250,
     },
-}
+]
 
 
 @app.route("/devices", methods=["POST"])
 def get_data():
-    # data = request.get_json()
-    return devices, 200
+    received = request.get_json()
+    devices = received["devices"]
+    devices = devices.replace(" ", "")
+    devices = devices.split(",")
+
+
+    return received, 200
 
 
 if __name__ == "__main__":
