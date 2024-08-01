@@ -17,9 +17,9 @@ app = Flask(__name__)
 @app.route("/devices", methods=["POST"])
 def get_data():
     data = request.get_json()
-    print(data["message"])
-    return data["message"], 200
+    print(data["devices"])
+    return data["devices"], 200
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=7359)
