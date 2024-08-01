@@ -1,8 +1,10 @@
 'use client'
 import { useState } from "react";
+import Data from "../components/data";
 
 export default function Home() {
   const [result, updateResult] = useState('');
+  const [devices, updateDevices] = useState('');
 
   const sendMessage = async (message: string) => {
     const response = await fetch('https://plant.cnicholson.hackclub.app/devices', {
@@ -16,10 +18,14 @@ export default function Home() {
     });
 
     if (response.ok) {
-      const data = await response.json();
+      const devices = await response.json();
       console.log('Message sent successfully!');
-      console.log(data.devices);
-      updateResult(data.devices);
+      // console.log(devices);
+      updateResult(devices);
+      console.log('Devices connected to:');
+      for (let i = 0; i < devices.length; i++) {
+        console.log(devices[i].device);
+      }
     } else {
       console.error('Error sending message:', response.statusText);
     }
@@ -27,10 +33,20 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold">Plant Monitor Dashboard</h1>
-      {/* <form onSubmit={() => sendMessage("testing")}>Click me</form> */}
-      <button onClick={() => sendMessage("testing")}>Click me</button>
-      <p>{result}</p>
+      <div className="p-10">
+        <h1 className="text-4xl font-bold">Plant Monitor Dashboard</h1>
+        <p className="pt-3">Enter the devices you want to be connected to, seperated by commas.</p>
+        <input className="p-2 my-4 mr-4 rounded-md border border-black" placeholder="Enter station numbers" onChange={(event) => updateDevices(event.target.value)} />
+        <button className="p-2 border border-black rounded-md bg-gray-100 hover:bg-gray-200" onClick={() => sendMessage(devices)}>Submit station numbers</button>
+
+        <Data
+          device={1234}
+          soilHumidity={50}
+          humidity={50}
+          temperature={50}
+          pressure={50}
+        />
+      </div>
     </>
   );
 }
