@@ -5,7 +5,7 @@ export default function Home() {
   const [result, updateResult] = useState('');
 
   const sendMessage = async (message: string) => {
-    const response = await fetch('http://plant.cnicholson.hackclub.app/devices', {
+    const response = await fetch('https://plant.cnicholson.hackclub.app/devices', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
