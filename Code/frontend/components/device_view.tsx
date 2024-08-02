@@ -11,6 +11,7 @@ export default function DeviceList({ devices }: DeviceListProps) {
             {devices.map((device) => (
                 <Data
                     key={device.device}
+                    alias={device.alias}
                     device={device.device}
                     soilHumidity={device.soilHumidity}
                     airHumidity={device.airHumidity}
