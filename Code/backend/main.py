@@ -9,15 +9,19 @@ app = Flask(__name__)
 CORS(app)
 
 cwd = os.getcwd()
+users_file = os.path.join(cwd, "users.json")
 
-users = {
-    "u": {
-        "password": "p",
-        "stations": "1234,5678",
-        "aliases": "Station1,Station2",
-        "token": None,
-    }
-}
+# Load users from JSON file
+if os.path.exists(users_file):
+    with open(users_file, "r") as f:
+        users = json.load(f)
+else:
+    users = {}
+
+
+def save_users():
+    with open(users_file, "w") as f:
+        json.dump(users, f, indent=4)
 
 
 @app.route("/register", methods=["POST"])
@@ -25,8 +29,8 @@ def register():
     received = request.get_json()
     username = received["username"]
     password = received["password"]
-    stations = received["stations"]
-    aliases = received["aliases"]
+    stations = received["stations"].replace(", ", ",")
+    aliases = received["aliases"].replace(", ", ",")
 
     if username in users:
         return jsonify({"error": "User already exists"}), 400
@@ -38,6 +42,7 @@ def register():
         "token": None,
     }
 
+    save_users()
     return "User created successfully", 201
 
 
@@ -56,6 +61,7 @@ def login():
             "stations": user["stations"],
             "aliases": user["aliases"],
         }
+        save_users()
         return jsonify(response), 200
     else:
         return jsonify({"error": "Invalid username or password"}), 401
@@ -76,9 +82,7 @@ def get_data():
         return "Unauthorized", 401
 
     received = request.get_json()
-    devices = received["devices"]
-    devices = devices.replace(" ", "")
-    devices = devices.split(",")
+    devices = received["devices"].replace(", ", ",").split(",")
     print(devices)
 
     jsonPacket = []
@@ -114,12 +118,13 @@ def update_stations():
         return "Unauthorized", 401
 
     received = request.get_json()
-    new_stations = received["stations"]
-    new_aliases = received["aliases"]
+    new_stations = received["stations"].replace(", ", ",")
+    new_aliases = received["aliases"].replace(", ", ",")
 
     user["stations"] = new_stations
     user["aliases"] = new_aliases
 
+    save_users()
     return "Success", 200
 
 
