@@ -1,0 +1,14 @@
+{
+    "u": {
+        "password": "p",
+        "stations": "1234,4678",
+        "aliases": "Kitchen,Bedroom",
+        "token": "3f462a2d304a49308cb22c0ccafb0940"
+    },
+    "p": {
+        "password": "u",
+        "stations": "1234,5678",
+        "aliases": "Den",
+        "token": "dc585479834fe14b6b81b6aa3e4609ef"
+    }
+}

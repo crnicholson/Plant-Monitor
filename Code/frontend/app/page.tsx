@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import DeviceList from "../components/device_view";
 import { Device } from "../templates/device";
+import Image from 'next/image';
 
 export default function Home() {
   let accentColor = "#1433D6";
@@ -15,6 +16,8 @@ export default function Home() {
   const [aliases, setAliases] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(true);
 
   useEffect(() => {
     if (token && stations) {
@@ -110,19 +113,34 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full h-[60px] bg-[#1433D6] text-white flex justify-start items-center">
-        <h1 className=" text-2xl font-bold px-5">Plant Monitor Dashboard</h1>
+      <div className="w-full h-[60px] bg-[#1433D6] text-white flex justify-between">
+        <div className="flex w-fit justify-start items-center">
+          <h1 className="text-2xl font-bold mx-5">Plant Monitor Dashboard</h1>
+          <p>v1.0</p>
+        </div>
+        <div className="w-fit flex justify-end items-center mr-5 gap-5">
+          {/* <Image
+            src="/cat.webp"
+            width={20}
+            height={20}
+            alt="GH logo"
+          /> */}
+          {/* <img src="/cat.webp" alt="cat" width={20} height={20} className="bg-transparent"/> */}
+          <a className="hover:underline">GitHub</a>
+          <a className="hover:underline">Help</a>
+          <a className="hover:underline">Login/Signup</a>
+        </div>
       </div>
       {/* <div className="text-center w-full pt-5">
         <h1 className="text-3xl ">Welcome to the Plant Monitor Dashboard</h1>
         <p>Please login for access to the data dashboard.</p>
       </div> */}
       <div className=" w-full flex justify-center items-center">
-        <div className="p-10 w-fit ">
+        <div className="px-10 pt-5 w-fit ">
           {!token ? (
             <div>
               <div className="mb-2">
-                <h2 className="text-3xl">{isRegistering ? 'Register' : 'Login'}</h2>
+                <h2 className="text-3xl pb-2">{isRegistering ? 'Register' : 'Login'}</h2>
                 <input
                   className="p-2 my-2 mr-2 rounded-xl border border-black"
                   placeholder="Username"
@@ -152,7 +170,7 @@ export default function Home() {
                 )}
 
                 <button
-                  className="p-2 px-3 bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white"
+                  className="p-2 mt-2 bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white"
                   onClick={isRegistering ? register : login}
                 >
                   {isRegistering ? 'Register' : 'Login'}
@@ -167,34 +185,49 @@ export default function Home() {
             </div>
           ) : (
             <>
-              <h1 className="pb-2 pt-5 text-3xl">Station Data</h1>
-              {devices.length > 0 && <DeviceList devices={devices} />}
+              <div>
+                <h1 className="pb-4 pt-5 text-3xl">Your data</h1>
+                {devices.length > 0 && <DeviceList devices={devices} />}
+                <button
+                  className="p-2 mt-5 px-3 bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white w-full"
+                  onClick={() => sendDevices(stations)}
+                >
+                  Poll for data
+                </button>
+              </div>
 
-              <h2 className="text-3xl pt-5">Edit Stations</h2>
-              <input
-                className="p-2 my-4 mr-4 rounded-md border border-black"
-                placeholder="Stations"
-                value={stations}
-                onChange={(event) => setStations(event.target.value)}
-              />
-              <input
-                className="p-2 my-4 mr-4 rounded-md border border-black"
-                placeholder="Aliases"
-                value={aliases}
-                onChange={(event) => setAliases(event.target.value)}
-              />
-              <button
-                className="p-2 mr-4 border border-black rounded-md bg-gray-100 hover:bg-gray-200"
-                onClick={updateStations}
-              >
-                Update station data
-              </button>
-              <button
-                className="p-2 border border-black rounded-md bg-gray-100 hover:bg-gray-200"
-                onClick={() => sendDevices(stations)}
-              >
-                Poll for data
-              </button>
+              <h1 className="text-3xl pt-10 pb-4">Edit your station information</h1>
+
+              {/* <a className="underline mt-5 text-[#4D5B7C] hover:text-gray-400" onClick={() => setIsEditing(true)}>Want to edit station data?</a> */}
+              {
+                isEditing && (<>
+                  <div className="w-fit h-fit border border-black p-3 bg-gray-50 rounded-xl flex flex-col gap-2">
+                    <div>
+                      <p>Enter your station numbers, seperated by commas.</p>
+                      <input
+                        className="bg-gray-50 p-2 my-4 mr-4 rounded-xl border border-black"
+                        placeholder="Stations"
+                        value={stations}
+                        onChange={(event) => setStations(event.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <p>Enter aliases for your station numbers, seperated by commas.</p>
+                      <input
+                        className="bg-gray-50 p-2 my-4 rounded-xl border border-black"
+                        placeholder="Aliases"
+                        value={aliases}
+                        onChange={(event) => setAliases(event.target.value)}
+                      />
+                    </div>
+                    <button
+                      className="p-2 px-3 bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white"
+                      onClick={() => { updateStations(); sendDevices(stations); }}
+                    >
+                      Update station data
+                    </button>
+                  </div>
+                </>)}
             </>
           )}
         </div>
