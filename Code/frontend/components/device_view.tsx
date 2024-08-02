@@ -22,15 +22,3 @@ export default function DeviceList({ devices }: DeviceListProps) {
         </div>
     );
 }
-
-// export default function DisplayDevices(json: string) {
-//     json = JSON.parse(json);
-//     for (let i = 0; i < json.length; i++) {
-//         console.log(json[i]);
-//     }
-//     return (
-//         <>
-            
-//         </>
-//     );
-// }

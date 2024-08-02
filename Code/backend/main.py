@@ -1,17 +1,16 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import os
 import json
 import pandas as pd
 import secrets
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 cwd = os.getcwd()
 users_file = os.path.join(cwd, "users.json")
 
-# Load users from JSON file
 if os.path.exists(users_file):
     with open(users_file, "r") as f:
         users = json.load(f)
@@ -126,6 +125,43 @@ def update_stations():
 
     save_users()
     return "Success", 200
+
+
+@app.route("/download-csv", methods=["POST", "OPTIONS"])
+@cross_origin(supports_credentials=True)
+def download_csv():
+    token = request.headers.get("Authorization")
+    user = validate_token(token)
+    if not user:
+        return "Unauthorized", 401
+
+    received = request.get_json()
+    devices = received["devices"]
+    devices = devices.replace(" ", "")
+    devices = devices.split(",")
+
+    data_frames = []
+    for device in devices:
+        device = int(device)
+        path = f"{cwd}/data/{device}.csv"
+        if os.path.exists(path):
+            df = pd.read_csv(path)
+            df["alias"] = user["aliases"].split(",")[
+                user["stations"].split(",").index(str(device))
+            ]
+            data_frames.append(df)
+
+    if data_frames:
+        all_data = pd.concat(data_frames)
+        csv_data = all_data.to_csv(index=False)
+        response = app.response_class(
+            response=csv_data,
+            mimetype="text/csv",
+            headers={"Content-Disposition": "attachment;filename=data.csv"},
+        )
+        return response
+    else:
+        return "No data found", 404
 
 
 if __name__ == "__main__":

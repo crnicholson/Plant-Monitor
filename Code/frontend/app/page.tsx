@@ -56,6 +56,7 @@ export default function Home() {
     if (response.ok) {
       const data = await response.json();
       setToken(data.token);
+      localStorage.setItem('token', data.token); // Save token to local storage
       setStations(data.stations);
       setAliases(data.aliases);
     } else {
@@ -106,6 +107,7 @@ export default function Home() {
       console.log('Stations updated');
     } else {
       console.error('Error updating stations:', response.statusText);
+      setError('One or more of your stations does not exist.');
     }
   };
 
@@ -128,19 +130,16 @@ export default function Home() {
           {/* <img src="/cat.webp" alt="cat" width={20} height={20} className="bg-transparent"/> */}
           <a className="hover:underline">GitHub</a>
           <a className="hover:underline">Help</a>
-          <a className="hover:underline">Login/Signup</a>
+          <a href="/" className="hover:underline">Login/Signup</a>
         </div>
       </div>
-      {/* <div className="text-center w-full pt-5">
-        <h1 className="text-3xl ">Welcome to the Plant Monitor Dashboard</h1>
-        <p>Please login for access to the data dashboard.</p>
-      </div> */}
       <div className=" w-full flex justify-center items-center">
         <div className="px-10 pt-5 w-fit ">
           {!token ? (
             <div>
               <div className="mb-2">
                 <h2 className="text-3xl pb-2">{isRegistering ? 'Register' : 'Login'}</h2>
+                <p className="my-2">{isRegistering ? 'Please enter at least 1 character for username and password.' : 'Please enter your username and password.'}</p>
                 <input
                   className="p-2 my-2 mr-2 rounded-xl border border-black"
                   placeholder="Username"
@@ -172,6 +171,7 @@ export default function Home() {
                 <button
                   className="p-2 mt-2 bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white"
                   onClick={isRegistering ? register : login}
+                  disabled={username.length < 1 || password.length < 1}
                 >
                   {isRegistering ? 'Register' : 'Login'}
                 </button>
@@ -201,7 +201,7 @@ export default function Home() {
               {/* <a className="underline mt-5 text-[#4D5B7C] hover:text-gray-400" onClick={() => setIsEditing(true)}>Want to edit station data?</a> */}
               {
                 isEditing && (<>
-                  <div className="w-fit h-fit border border-black p-3 bg-gray-50 rounded-xl flex flex-col gap-2">
+                  <div className="w-fit h-fit border border-black p-3 bg-gray-100 rounded-xl flex flex-col gap-2">
                     <div>
                       <p>Enter your station numbers, seperated by commas.</p>
                       <input
@@ -226,6 +226,7 @@ export default function Home() {
                     >
                       Update station data
                     </button>
+                    {error && <div className="p-2 w-fit border rounded-xl bg-red-200 my-5 text-red-500">{error}</div>}
                   </div>
                 </>)}
             </>
