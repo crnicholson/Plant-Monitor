@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: inter;
+    src: url(../public/inter.ttf);
+}
+
+@font-face {
+    font-family: epilogue;
+    src: url(../public/epilogue.ttf);
+}

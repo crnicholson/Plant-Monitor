@@ -4,23 +4,41 @@ import os
 import json
 import pandas as pd
 import secrets
-import usersFile
 
 app = Flask(__name__)
 CORS(app)
 
 cwd = os.getcwd()
 
-users = usersFile.users
+users = {
+    "u": {
+        "password": "p",
+        "stations": "1234,5678",
+        "aliases": "Station1,Station2",
+        "token": None,
+    }
+}
 
-# users = {
-#     "u": {
-#         "password": "p",
-#         "stations": "1234,5678",
-#         "aliases": "Station1,Station2",
-#         "token": None,
-#     }
-# }
+
+@app.route("/register", methods=["POST"])
+def register():
+    received = request.get_json()
+    username = received["username"]
+    password = received["password"]
+    stations = received["stations"]
+    aliases = received["aliases"]
+
+    if username in users:
+        return jsonify({"error": "User already exists"}), 400
+
+    users[username] = {
+        "password": password,
+        "stations": stations,
+        "aliases": aliases,
+        "token": None,
+    }
+
+    return "User created successfully", 201
 
 
 @app.route("/login", methods=["POST"])
@@ -40,7 +58,7 @@ def login():
         }
         return jsonify(response), 200
     else:
-        return "failed", 401
+        return jsonify({"error": "Invalid username or password"}), 401
 
 
 def validate_token(token):
