@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Data(props: { alias: string, device: number, soilHumidity: number, airHumidity: number, temperature: number, pressure: number }) {
+export default function Data(props: { alias: string, device: number, soilHumidity: number, airHumidity: number, temperature: number, pressure: number, time: string }) {
     const downloadCSV = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -38,6 +38,7 @@ export default function Data(props: { alias: string, device: number, soilHumidit
             <p>Air relative humidity: {props.airHumidity}%</p>
             <p>Air temperature: {props.temperature} C</p>
             <p>Air pressure: {props.pressure} hPa</p>
+            <p>Time: {props.time}</p>
             <button onClick={downloadCSV} className="p-2 mt-2 w-full bg-[#1433D6] hover:bg-blue-600 rounded-xl text-white">
                 Download CSV
             </button>

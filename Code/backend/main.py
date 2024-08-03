@@ -101,6 +101,7 @@ def get_data():
                 "airHumidity": int(latest_data[3]),
                 "temperature": float(latest_data[4]),
                 "pressure": float(latest_data[5]),
+                "time": str(latest_data[6]),
             }
             jsonPacket.append(packet)
 

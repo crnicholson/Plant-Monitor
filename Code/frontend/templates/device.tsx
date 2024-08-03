@@ -5,4 +5,5 @@ export interface Device {
     airHumidity: number;
     temperature: number;
     pressure: number;
+    time: string;
 }

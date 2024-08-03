@@ -10,13 +10,14 @@ export default function DeviceList({ devices }: DeviceListProps) {
         <div className="flex flex-wrap gap-4">
             {devices.map((device) => (
                 <Data
-                    key={device.device}
+                    // key={device.device}
                     alias={device.alias}
                     device={device.device}
                     soilHumidity={device.soilHumidity}
                     airHumidity={device.airHumidity}
                     temperature={device.temperature}
                     pressure={device.pressure}
+                    time={device.time}
                 />
             ))}
         </div>

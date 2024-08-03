@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import DeviceList from "../components/device_view";
 import { Device } from "../templates/device";
 import Image from 'next/image';
+import fs from 'fs';
+import path from 'path';
+import LineChart from '../components/chart';
 
 export default function Home() {
   let accentColor = "#1433D6";
@@ -57,8 +60,8 @@ export default function Home() {
       const data = await response.json();
       setToken(data.token);
       localStorage.setItem('token', data.token); // Save token to local storage
-      setStations(data.stations);
-      setAliases(data.aliases);
+      setStations(data.stations.replace(",", ", "));
+      setAliases(data.aliases.replace(",", ", "));
     } else {
       const data = await response.json();
       setError(data.error || 'Login failed');
@@ -128,8 +131,8 @@ export default function Home() {
             alt="GH logo"
           /> */}
           {/* <img src="/cat.webp" alt="cat" width={20} height={20} className="bg-transparent"/> */}
-          <a className="hover:underline">GitHub</a>
-          <a className="hover:underline">Help</a>
+          <a target="_blank" href="https://github.com/crnicholson/Plant-Monitor" className="hover:underline">GitHub</a>
+          <a href="/help" className="hover:underline">Help</a>
           <a href="/" className="hover:underline">Login/Signup</a>
         </div>
       </div>
@@ -227,6 +230,7 @@ export default function Home() {
                       Update station data
                     </button>
                     {error && <div className="p-2 w-fit border rounded-xl bg-red-200 my-5 text-red-500">{error}</div>}
+                    <LineChart csvData="../../backend/data/1234.csv" />
                   </div>
                 </>)}
             </>
@@ -236,3 +240,15 @@ export default function Home() {
     </>
   );
 }
+
+
+// export async function getStaticProps() {
+//   const filePath = path.resolve('./data', 'your-file.csv');
+//   const csvData = fs.readFileSync(filePath, 'utf8');
+
+//   return {
+//     props: {
+//       csvData,
+//     },
+//   };
+// }
