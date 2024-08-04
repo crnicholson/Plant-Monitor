@@ -14,7 +14,7 @@ export default function Manage() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ user: user.name, stations: keys }),
+            body: JSON.stringify({ user: user?.name, stations: keys }),
         });
         if (response.ok) {
             console.log("Stations set successfully.");
@@ -52,7 +52,7 @@ export default function Manage() {
                     />
                     <button
                         className="h-fit w-fit p-2 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg"
-                        onClick={sendStations(stations)}
+                        onClick={() => sendStations(stations)}
                     >
                         Update
                     </button>
