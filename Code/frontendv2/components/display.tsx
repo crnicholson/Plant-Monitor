@@ -41,7 +41,7 @@ export default function Display() {
         });
         if (response.ok) {
             console.log("Added stations successfully.");
-            getStationList(); 
+            getStationList();
         } else {
             console.error('Error getting data:', response.statusText);
         }

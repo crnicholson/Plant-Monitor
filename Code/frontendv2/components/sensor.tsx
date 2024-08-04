@@ -8,6 +8,7 @@ interface StationData {
     humidity: number;
     temperature: number;
     pressure: number;
+    time: string;
 }
 
 export default function Sensor({ station }: { station: string }) {
@@ -70,6 +71,7 @@ export default function Sensor({ station }: { station: string }) {
                 <p>{data?.humidity ?? "Loading..."}</p>
                 <p>{data?.temperature ?? "Loading..."}</p>
                 <p>{data?.pressure ?? "Loading..."}</p>
+                <p>{data?.time ?? "Loading..."}</p>
                 <div>
                     <input
                         className="w-fit h-10 my-2 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
