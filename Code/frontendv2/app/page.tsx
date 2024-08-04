@@ -6,13 +6,13 @@ import { redirect } from "next/navigation";
 export default function Landing() {
   const { user, error, isLoading } = useUser();
 
-  // if (user) {
-  //   redirect("/dashboard")
-  // }
+  if (user) {
+    redirect("/dashboard")
+  }
   return (
     <>
       <div className="flex flex-row">
-        <div className="text-[#00335B] w-1/2 p-10 flex justify-center h-screen items-center bg-gray-50">
+        <div className="w-1/2 p-10 flex justify-center h-screen items-center">
           <div className="w-fit flex flex-col gap-[20px]">
             <h1 className="text-4xl font-bold">Welcome to the Sensor Dashboard.</h1>
             <p className="-mt-[15px] text-4xl">
