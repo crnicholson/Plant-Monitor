@@ -13,7 +13,7 @@ export default function Dashboard() {
                     <p className="text-sm">WELCOME TO YOUR</p>
                     <h1 className="text-4xl font-bold">Dashboard</h1>
                     <a className="underline hover:text-[#00345be3]" href="/api/auth/logout">Logout</a>
-                    <Manage />
+                    {/* <Manage /> */}
                 </div>
             </>
         );

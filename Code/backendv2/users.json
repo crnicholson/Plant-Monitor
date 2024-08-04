@@ -1,0 +1,24 @@
+{
+    "User 1": {
+        "name": "John Doe",
+        "stations": {
+            "1234": {
+                "alias": "Station 1"
+            },
+            "5678": {
+                "alias": "Station 2"
+            }
+        }
+    },
+    "User 2": {
+        "name": "John Doe",
+        "stations": {
+            "1234": {
+                "alias": "Station 1"
+            },
+            "5678": {
+                "alias": "Station 2"
+            }
+        }
+    }
+}

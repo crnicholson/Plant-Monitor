@@ -1,0 +1,3 @@
+TX_count,Device_number,Soil_humidity,Air_humidity,Temperature,Pressure,Time,Alias,Owner
+1,1234,51,67,23,1252,2024-08-02 12:00:00,Kitchen,123455677
+2,1234,34,54,22,1266,2024-08-02 13:00:00,Kitchen,123455677
