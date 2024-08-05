@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
@@ -155,6 +155,19 @@ def update_alias():
         return "Alias updated", 200
     else:
         return "Unauthorized", 401
+
+@app.route("/get-csv", methods=["POST"])
+def get_csv():
+    received = request.get_json()
+    station = received["station"]
+
+    path = f"{cwd}/data/{station}.csv"
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+        df.to_csv(path, index=False)
+        return send_file(path, as_attachment=True)
+    else:
+        return "File not found.", 404
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ export default function Sensor({ station }: { station: string }) {
     const [alias, setAlias] = useState('');
     const [data, setData] = useState<StationData | null>(null);
     const { user, error, isLoading } = useUser();
+    const [difference, setDifference] = useState(0);
 
     const removeSensor = async (station: string) => {
         if (!user) return;
@@ -49,6 +50,11 @@ export default function Sensor({ station }: { station: string }) {
         if (response.ok) {
             const data = await response.json();
             setData(data);
+            let now = new Date().getTime();
+            let lastUpdated = new Date(data.time.replace(" ", "T")).getTime();
+            let diff = now - lastUpdated;
+            diff = Math.floor(diff / 1000);
+            setDifference(diff);
         } else {
             console.error('Error getting data:', response.statusText);
         }
@@ -82,6 +88,35 @@ export default function Sensor({ station }: { station: string }) {
         return () => clearInterval(interval);
     }, [station, user]);
 
+    const downloadCSV = async () => {
+        try {
+            if (!user) return;
+
+            const response = await fetch('http://127.0.0.1:5000/get-csv', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ "station": station }),
+            });
+
+            const blob = await response.blob();
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = station + '.csv';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(downloadUrl);
+            a.remove();
+
+            return 0;
+        } catch (error) {
+            return -1
+        }
+    };
+
+
     return (
         <>
             {/* Desktop card */}
@@ -90,7 +125,9 @@ export default function Sensor({ station }: { station: string }) {
                     <div>
                         <h1 className="text-2xl font-bold">{data?.alias || "Loading..."}</h1>
                         <p className="text-lg text-gray-500">Sensor: {data?.device || "Loading..."}</p>
-                        <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a>
+                        <span>
+                            <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a> | <a className="underline text-sm italic" onClick={() => downloadCSV()}>Download</a>
+                        </span>
                     </div>
                     <div className="flex gap-2 items-center">
                         <input
@@ -126,12 +163,17 @@ export default function Sensor({ station }: { station: string }) {
                         <span>{data?.pressure ?? "Loading..."} hPa</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="font-bold">Update freqeuncy:</span>
+                        <span className="font-bold">Update Frequency:</span>
                         <span>{data?.frequency ?? "Loading..."} seconds</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className="font-bold">Update freqeuncy:</span>
-                        <span>{data?.frequency ?? "Loading..."} seconds</span>
+                        <span className="font-bold">Update Gap:</span>
+                        {difference > data?.frequency && (
+                            <span className="text-red-500">{difference} seconds</span>
+                        )}
+                        {difference <= data?.frequency && (
+                            <span className="text-green-500">{difference} seconds</span>
+                        )}
                     </div>
                     <div className="col-span-2 flex items-center gap-2">
                         <span className="font-bold">Last Updated:</span>
@@ -164,6 +206,19 @@ export default function Sensor({ station }: { station: string }) {
                     <div className="flex items-center gap-2">
                         <span className="font-bold">Pressure:</span>
                         <span>{data?.pressure ?? "Loading..."} hPa</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">Update Frequency:</span>
+                        <span>{data?.frequency ?? "Loading..."} seconds</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">Update Gap:</span>
+                        {difference > data?.frequency && (
+                            <span className="text-red-500">{difference} seconds</span>
+                        )}
+                        {difference <= data?.frequency && (
+                            <span className="text-green-500">{difference} seconds</span>
+                        )}
                     </div>
                     <div className="flex items-center gap-2">
                         <span className="font-bold">Last Updated:</span>
