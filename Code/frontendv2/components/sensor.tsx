@@ -1,5 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useState, useEffect } from "react";
+import Error from "./error";
 
 interface StationData {
     alias: string;
@@ -37,6 +38,8 @@ export default function Sensor({ station }: { station: string }) {
     const updateAlias = async (station: string, alias: string) => {
         if (!user) return;
 
+        if (!alias) return;
+
         const response = await fetch('http://127.0.0.1:5000/update-alias', {
             method: 'POST',
             headers: {
@@ -62,7 +65,7 @@ export default function Sensor({ station }: { station: string }) {
     return (
         <>
             {/* Desktop card */}
-            <div className="hidden md:block w-full p-6 bg-white shadow-lg rounded-lg text-gray-700 transition duration-500 hover:scale-125 transform">
+            <div className="hidden md:block w-full p-6 bg-white shadow-lg rounded-lg text-gray-700 transition duration-500 hover:scale-105 transform hover:shadow-2xl">
                 <div className="flex justify-between items-center mb-4">
                     <div>
                         <h1 className="text-2xl font-bold">{data?.alias || "Loading..."}</h1>
@@ -76,8 +79,9 @@ export default function Sensor({ station }: { station: string }) {
                             value={alias}
                         />
                         <button
-                            className="h-10 px-4 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg"
+                            className={`h-10 px-4 text-white rounded-lg ${alias ? 'bg-[#00335B] hover:bg-[#00345be3]' : 'bg-gray-400 cursor-not-allowed'}`}
                             onClick={() => updateAlias(station, alias)}
+                            disabled={!alias}
                         >
                             Update
                         </button>
@@ -108,7 +112,7 @@ export default function Sensor({ station }: { station: string }) {
             </div>
 
             {/* Mobile card */}
-            <div className="block md:hidden w-full p-4 bg-white shadow-md rounded-md text-gray-700">
+            <div className="block md:hidden w-full p-4 bg-white shadow-md rounded-md text-gray-700 transition duration-500 hover:scale-105 transform">
                 <div className="mb-4">
                     <h1 className="text-xl font-bold">{data?.alias || "Loading..."}</h1>
                     <p className="text-md text-gray-500">Sensor: {data?.device || "Loading..."}</p>
@@ -144,8 +148,9 @@ export default function Sensor({ station }: { station: string }) {
                         value={alias}
                     />
                     <button
-                        className="w-full h-10 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg"
+                        className={`w-full h-10 ${alias ? 'bg-[#00335B] hover:bg-[#00345be3]' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-lg`}
                         onClick={() => updateAlias(station, alias)}
+                        disabled={!alias}
                     >
                         Update
                     </button>

@@ -58,7 +58,6 @@ def get_data():
 
             alias = ""
             for element in range(len(data[owner])):
-                print(element)
                 if data[owner][element] == station:
                     alias = data[owner][element + 1]
                     break
@@ -74,7 +73,7 @@ def get_data():
             }
 
         json_response = json.dumps(packet)
-        print(json_response)
+        print("\nSending packet:\n" + json_response + " \n")
         return json_response, 200
     else:
         return "Unauthorized", 401
@@ -86,9 +85,11 @@ def add_sensor():
     station = int(received["station"])
     alias = received["alias"]
     owner = received["owner"]
-    print(station, alias, owner)
     data = read_json()
-    print(data)
+    for name, sensors in data.items():
+        if station in sensors:
+            print("\nSensor already exists.\n")
+            return "Sensor already exists.", 400
     if owner not in data:
         data[owner] = [station, alias]
     else:
@@ -103,13 +104,10 @@ def get_station_list():
     owner = received["owner"]
     data = read_json()
     if owner in data:
-        print(data[owner])
         station_list = []
         for element in range(0, len(data[owner]), 2):
             station = data[owner][element]
             station_list.append(station)
-            print(station)
-            print({"stations": station_list})
         return jsonify({"stations": station_list}), 200
     else:
         return "Unauthorized", 401

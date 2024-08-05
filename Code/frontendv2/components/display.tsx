@@ -1,11 +1,13 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useState, useEffect } from "react";
 import Sensor from "./sensor";
+import Error from "./error"; // Import the Error component
 
 export default function Display() {
     const [newSensor, setNewSensor] = useState('');
     const [newSensorAlias, setNewSensorAlias] = useState('');
     const [sensorList, setSensorList] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const { user, error, isLoading } = useUser();
 
     useEffect(() => {
@@ -32,6 +34,12 @@ export default function Display() {
 
     const addSensor = async (station: string, alias: string) => {
         if (!user) return;
+
+        if (!station || !alias) {
+            setErrorMessage('Both fields are required');
+            return;
+        }
+
         const response = await fetch('http://127.0.0.1:5000/add-sensor', {
             method: 'POST',
             headers: {
@@ -40,11 +48,17 @@ export default function Display() {
             body: JSON.stringify({ "owner": user.name, "station": station, "alias": alias }),
         });
         if (response.ok) {
-            console.log("Added stations successfully.");
+            console.log("Added station successfully.");
             getStationList();
         } else {
-            console.error('Error getting data:', response.statusText);
+            const errorText = await response.text();
+            setErrorMessage(errorText || 'Error adding sensor');
+            console.error('Error adding sensor:', response.statusText);
         }
+    };
+
+    const clearErrorMessage = () => {
+        setErrorMessage('');
     };
 
     return (
@@ -55,20 +69,26 @@ export default function Display() {
                     <input
                         className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                         placeholder="New station number"
+                        value={newSensor}
                         onChange={(event) => setNewSensor(event.target.value)}
                     />
                     <input
                         className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                         placeholder="New station alias"
+                        value={newSensorAlias}
                         onChange={(event) => setNewSensorAlias(event.target.value)}
                     />
                 </div>
                 <button
-                    className="h-10 px-4 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg w-full"
+                    className={`h-10 px-4 ${newSensor && newSensorAlias ? 'bg-[#00335B] hover:bg-[#00345be3]' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-lg w-full`}
                     onClick={() => addSensor(newSensor, newSensorAlias)}
+                    disabled={!newSensor || !newSensorAlias}
                 >
                     Add
                 </button>
+                {errorMessage && (
+                    <Error message={errorMessage} clearMessage={clearErrorMessage} />
+                )}
             </div>
             <div className="sensor-list mt-3 flex gap-3 flex-col">
                 <h1 className="mt-6 mb-1 text-3xl font-bold">Your Data</h1>
