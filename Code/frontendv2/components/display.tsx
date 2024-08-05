@@ -49,17 +49,29 @@ export default function Display() {
 
     return (
         <>
-            <h1 className="text-2xl font-bold mb-2">Your Data</h1>
-            <p>Manage your sensors.</p>
-            <input className="w-fit h-10 my-2 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="New station number" onChange={(event) => setNewSensor(event.target.value)} />
-            <input className="w-fit h-10 m-3 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="New station alias" onChange={(event) => setNewSensorAlias(event.target.value)} />
-            <button
-                className="h-fit w-fit p-2 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg"
-                onClick={() => addSensor(newSensor, newSensorAlias)}
-            >
-                Add
-            </button>
-            <div className="sensor-list mt-4">
+            <div className="bg-white p-6 shadow-lg rounded-lg text-gray-700">
+                <h1 className="text-2xl font-bold mb-4">Add New Sensors</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <input
+                        className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                        placeholder="New station number"
+                        onChange={(event) => setNewSensor(event.target.value)}
+                    />
+                    <input
+                        className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                        placeholder="New station alias"
+                        onChange={(event) => setNewSensorAlias(event.target.value)}
+                    />
+                </div>
+                <button
+                    className="h-10 px-4 bg-[#00335B] hover:bg-[#00345be3] text-white rounded-lg w-full"
+                    onClick={() => addSensor(newSensor, newSensorAlias)}
+                >
+                    Add
+                </button>
+            </div>
+            <div className="sensor-list mt-3 flex gap-3 flex-col">
+                <h1 className="mt-6 mb-1 text-3xl font-bold">Your Data</h1>
                 {sensorList.map(sensor => (
                     <Sensor key={sensor} station={sensor} />
                 ))}

@@ -47,14 +47,10 @@ def get_users():
 @app.route("/get-station-data", methods=["POST"])
 def get_data():
     received = request.get_json()
-    print(received)
     station = int(received["station"])
     owner = received["owner"]
-    print(station, owner)
     data = read_json()
     if owner in data:
-        jsonPacket = []
-
         path = f"{cwd}/data/{station}.csv"
         if os.path.exists(path):
             df = pd.read_csv(path)
@@ -62,8 +58,9 @@ def get_data():
 
             alias = ""
             for element in range(len(data[owner])):
-                if element == station:
-                    alias = data[owner][element]
+                print(element)
+                if data[owner][element] == station:
+                    alias = data[owner][element + 1]
                     break
 
             packet = {
@@ -75,9 +72,8 @@ def get_data():
                 "time": str(latest_data[6]),
                 "alias": alias,
             }
-            jsonPacket.append(packet)
 
-        json_response = json.dumps(jsonPacket)
+        json_response = json.dumps(packet)
         print(json_response)
         return json_response, 200
     else:
