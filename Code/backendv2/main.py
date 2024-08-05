@@ -156,6 +156,7 @@ def update_alias():
     else:
         return "Unauthorized", 401
 
+
 @app.route("/get-csv", methods=["POST"])
 def get_csv():
     received = request.get_json()
@@ -166,6 +167,43 @@ def get_csv():
         df = pd.read_csv(path)
         df.to_csv(path, index=False)
         return send_file(path, as_attachment=True)
+    else:
+        return "File not found.", 404
+
+
+@app.route("/get-chart-data", methods=["POST"])
+def get_chart_data():
+    received = request.get_json()
+    station = int(received["station"])
+    path = f"{cwd}/data/{station}.csv"
+
+    packet = {}
+
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+        for row in range(len(df)):
+            soil = df.iloc[row, 3]
+            humidity = df.iloc[row, 4]
+            temp = df.iloc[row, 5]
+            time = df.iloc[row, 7]
+            packet["soil"] += [soil]
+            packet["humidity"] += [humidity]
+            packet["temp"] += [temp]
+            packet["time"] += [time]
+
+        if len(packet["time"]) <= 4:
+            return jsonify(packet), 200
+
+        interval = len(packet["time"]) // 3
+
+        packet = [
+            packet["time"][0],
+            packet["time"][interval],
+            packet["time"][2 * interval],
+            packet["time"][-1],
+        ]
+
+        return jsonify(packet), 200
     else:
         return "File not found.", 404
 

@@ -1,5 +1,6 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useState, useEffect } from "react";
+import Chart from "./chart";
 import Error from "./error";
 
 interface StationData {
@@ -11,6 +12,7 @@ interface StationData {
     pressure: number;
     time: string;
     frequency: number;
+    voltage: number;
 }
 
 export default function Sensor({ station }: { station: string }) {
@@ -89,31 +91,27 @@ export default function Sensor({ station }: { station: string }) {
     }, [station, user]);
 
     const downloadCSV = async () => {
-        try {
-            if (!user) return;
+        if (!user) return;
 
-            const response = await fetch('http://127.0.0.1:5000/get-csv', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ "station": station }),
-            });
+        const response = await fetch('http://127.0.0.1:5000/get-csv', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "station": station }),
+        });
 
-            const blob = await response.blob();
-            const downloadUrl = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = downloadUrl;
-            a.download = station + '.csv';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(downloadUrl);
-            a.remove();
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = station + '.csv';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(downloadUrl);
+        a.remove();
 
-            return 0;
-        } catch (error) {
-            return -1
-        }
+        return 0;
     };
 
 
@@ -164,14 +162,14 @@ export default function Sensor({ station }: { station: string }) {
                     </div>
                     <div className="flex items-center gap-2">
                         <span className="font-bold">Update Frequency:</span>
-                        <span>{data?.frequency ?? "Loading..."} seconds</span>
+                        <span>{data?.frequency !== undefined ? data.frequency : "Loading..."} seconds</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <span className="font-bold">Update Gap:</span>
-                        {difference > data?.frequency && (
+                        {difference > (data?.frequency ?? 0) && (
                             <span className="text-red-500">{difference} seconds</span>
                         )}
-                        {difference <= data?.frequency && (
+                        {difference <= (data?.frequency ?? 0) && (
                             <span className="text-green-500">{difference} seconds</span>
                         )}
                     </div>
@@ -180,6 +178,7 @@ export default function Sensor({ station }: { station: string }) {
                         <span>{data?.time ?? "Loading..."}</span>
                     </div>
                 </div>
+                <Chart station={station} />
             </div>
 
             {/* Mobile card */}
@@ -213,10 +212,10 @@ export default function Sensor({ station }: { station: string }) {
                     </div>
                     <div className="flex items-center gap-2">
                         <span className="font-bold">Update Gap:</span>
-                        {difference > data?.frequency && (
+                        {difference > (data?.frequency ?? 0) && (
                             <span className="text-red-500">{difference} seconds</span>
                         )}
-                        {difference <= data?.frequency && (
+                        {difference <= (data?.frequency ?? 0) && (
                             <span className="text-green-500">{difference} seconds</span>
                         )}
                     </div>
@@ -240,6 +239,7 @@ export default function Sensor({ station }: { station: string }) {
                         Update
                     </button>
                 </div>
+                <Chart station={station} />
             </div>
         </>
     );
