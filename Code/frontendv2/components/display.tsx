@@ -9,6 +9,7 @@ export default function Display() {
     const [sensorList, setSensorList] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const { user, error, isLoading } = useUser();
+    const [newPassword, setNewPassword] = useState('');
 
     useEffect(() => {
         getStationList();
@@ -32,11 +33,11 @@ export default function Display() {
         }
     };
 
-    const addSensor = async (station: string, alias: string) => {
+    const addSensor = async (station: string, alias: string, password: string) => {
         if (!user) return;
 
-        if (!station || !alias) {
-            setErrorMessage('Both fields are required');
+        if (!station || !alias || !password) {
+            setErrorMessage('All fields are required');
             return;
         }
 
@@ -45,7 +46,7 @@ export default function Display() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ "owner": user.name, "station": station, "alias": alias }),
+            body: JSON.stringify({ "owner": user.name, "station": station, "alias": alias, "password": password }),
         });
         if (response.ok) {
             console.log("Added station successfully.");
@@ -74,6 +75,12 @@ export default function Display() {
                     />
                     <input
                         className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                        placeholder="New station password"
+                        value={newPassword}
+                        onChange={(event) => setNewPassword(event.target.value)}
+                    />
+                    <input
+                        className="h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                         placeholder="New station alias"
                         value={newSensorAlias}
                         onChange={(event) => setNewSensorAlias(event.target.value)}
@@ -81,8 +88,8 @@ export default function Display() {
                 </div>
                 <button
                     className={`h-10 px-4 ${newSensor && newSensorAlias ? 'bg-[#00335B] hover:bg-[#00345be3]' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-lg w-full`}
-                    onClick={() => addSensor(newSensor, newSensorAlias)}
-                    disabled={!newSensor || !newSensorAlias}
+                    onClick={() => addSensor(newSensor, newSensorAlias, newPassword)}
+                    disabled={!newSensor || !newSensorAlias || !newPassword}
                 >
                     Add
                 </button>

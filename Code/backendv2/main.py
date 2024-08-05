@@ -16,9 +16,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-def read_json():
+def read_json(file):
     try:
-        with open("users.json", "r") as file:
+        with open(file, "r") as file:
             return json.loads(file.read())
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
@@ -28,9 +28,9 @@ def read_json():
         return {}
 
 
-def write_json(data):
+def write_json(data, input):
     try:
-        with open("users.json", "w") as file:
+        with open(input, "w") as file:
             json.dump(data, file, indent=4)
     except Exception as e:
         print(f"Error writing JSON: {e}")
@@ -49,17 +49,17 @@ def get_data():
     received = request.get_json()
     station = int(received["station"])
     owner = received["owner"]
-    data = read_json()
-    if owner in data:
+    users = read_json("users.json")
+    if owner in users:
         path = f"{cwd}/data/{station}.csv"
         if os.path.exists(path):
             df = pd.read_csv(path)
             latest_data = df.iloc[-1]
 
             alias = ""
-            for element in range(len(data[owner])):
-                if data[owner][element] == station:
-                    alias = data[owner][element + 1]
+            for element in range(len(users[owner])):
+                if users[owner][element] == station:
+                    alias = users[owner][element + 1]
                     break
 
             packet = {
@@ -69,6 +69,7 @@ def get_data():
                 "temperature": float(latest_data[4]),
                 "pressure": float(latest_data[5]),
                 "time": str(latest_data[6]),
+                "frequency": int(latest_data[7]),
                 "alias": alias,
             }
 
@@ -82,31 +83,56 @@ def get_data():
 @app.route("/add-sensor", methods=["POST"])
 def add_sensor():
     received = request.get_json()
-    station = int(received["station"])
+    station = str(received["station"])
     alias = received["alias"]
     owner = received["owner"]
-    data = read_json()
-    for name, sensors in data.items():
+    password = received["password"]
+    users = read_json("users.json")
+    stations = read_json("stations.json")
+    if stations[station] != password:
+        print("\nAdding sensor failed, password incorrect.\n")
+        return "Password incorrect.", 401
+    station = int(station)
+    for name, sensors in users.items():
         if station in sensors:
             print("\nSensor already exists.\n")
             return "Sensor already exists.", 400
-    if owner not in data:
-        data[owner] = [station, alias]
+    if owner not in users:
+        users[owner] = [station, alias]
     else:
-        data[owner] += [station, alias]
-    write_json(data)
+        users[owner] += [station, alias]
+    write_json(users, "users.json")
     return "Sensor added", 200
+
+
+@app.route("/remove-sensor", methods=["POST"])
+def remove_sensor():
+    received = request.get_json()
+    station = int(received["station"])
+    owner = received["owner"]
+    users = read_json("users.json")
+    if owner in users:
+        for element in range(len(users[owner])):
+            print(element)
+            if users[owner][element] == station:
+                print(users[owner].pop(element))
+                print(users[owner].pop(element))
+                break
+        write_json(users, "users.json")
+        return "Sensor removed", 200
+    else:
+        return "Unauthorized", 401
 
 
 @app.route("/get-station-list", methods=["POST"])
 def get_station_list():
     received = request.get_json()
     owner = received["owner"]
-    data = read_json()
-    if owner in data:
+    users = read_json("users.json")
+    if owner in users:
         station_list = []
-        for element in range(0, len(data[owner]), 2):
-            station = data[owner][element]
+        for element in range(0, len(users[owner]), 2):
+            station = users[owner][element]
             station_list.append(station)
         return jsonify({"stations": station_list}), 200
     else:
@@ -119,13 +145,13 @@ def update_alias():
     station = int(received["station"])
     alias = received["alias"]
     owner = received["owner"]
-    data = read_json()
-    if owner in data:
-        for i in range(0, len(data[owner]), 2):
-            if data[owner][i] == station:
-                data[owner][i + 1] = alias
+    users = read_json("users.json")
+    if owner in users:
+        for i in range(0, len(users[owner]), 2):
+            if users[owner][i] == station:
+                users[owner][i + 1] = alias
                 break
-        write_json(data)
+        write_json(users, "users.json")
         return "Alias updated", 200
     else:
         return "Unauthorized", 401

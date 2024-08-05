@@ -10,12 +10,31 @@ interface StationData {
     temperature: number;
     pressure: number;
     time: string;
+    frequency: number;
 }
 
 export default function Sensor({ station }: { station: string }) {
     const [alias, setAlias] = useState('');
     const [data, setData] = useState<StationData | null>(null);
     const { user, error, isLoading } = useUser();
+
+    const removeSensor = async (station: string) => {
+        if (!user) return;
+
+        const response = await fetch('http://127.0.0.1:5000/remove-sensor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "owner": user.name, "station": station }),
+        });
+        if (response.ok) {
+            console.log("Removed station successfully.");
+            window.location.reload();
+        } else {
+            console.error('Error getting data:', response.statusText);
+        }
+    };
 
     const getStationData = async (station: string) => {
         if (!user) return;
@@ -49,6 +68,7 @@ export default function Sensor({ station }: { station: string }) {
         });
         if (response.ok) {
             console.log("Set alias successfully.");
+            getStationData(station);
         } else {
             console.error('Error updating alias:', response.statusText);
         }
@@ -70,6 +90,7 @@ export default function Sensor({ station }: { station: string }) {
                     <div>
                         <h1 className="text-2xl font-bold">{data?.alias || "Loading..."}</h1>
                         <p className="text-lg text-gray-500">Sensor: {data?.device || "Loading..."}</p>
+                        <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a>
                     </div>
                     <div className="flex gap-2 items-center">
                         <input
@@ -104,6 +125,14 @@ export default function Sensor({ station }: { station: string }) {
                         <span className="font-bold">Pressure:</span>
                         <span>{data?.pressure ?? "Loading..."} hPa</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">Update freqeuncy:</span>
+                        <span>{data?.frequency ?? "Loading..."} seconds</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">Update freqeuncy:</span>
+                        <span>{data?.frequency ?? "Loading..."} seconds</span>
+                    </div>
                     <div className="col-span-2 flex items-center gap-2">
                         <span className="font-bold">Last Updated:</span>
                         <span>{data?.time ?? "Loading..."}</span>
@@ -116,6 +145,7 @@ export default function Sensor({ station }: { station: string }) {
                 <div className="mb-4">
                     <h1 className="text-xl font-bold">{data?.alias || "Loading..."}</h1>
                     <p className="text-md text-gray-500">Sensor: {data?.device || "Loading..."}</p>
+                    <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2">
