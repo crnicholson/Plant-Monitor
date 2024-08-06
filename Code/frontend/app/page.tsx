@@ -34,7 +34,7 @@ export default function Landing() {
           <div className="h-1/4"></div>
           <div className="h-1/2 flex justify-center items-center">
             <Image
-              src="/exampleDash.png"
+              src="/dash.png"
               alt="Sensor Dashboard Example"
               width={1000}
               height={500}
@@ -42,17 +42,16 @@ export default function Landing() {
               priority
             />
           </div>
-          <div className="h-1/4 flex justify-end items-end">
+          <div className="h-1/4 flex justify-center items-end">
             <footer className="hidden lg:block text-gray-400 bg-[#00335B]">
               <div className="container mx-auto text-center">
                 <p>Made with Next.js, Flask, and Auth0. Hosted on Nest and Vercel. Open source on <a className="underline" href="https://github.com/crnicholson/Plant-Monitor/">GitHub</a>.</p>
-                <p className="mb-4">&copy; 2024 Charles Nicholson. Licensed under MIT Software License.</p>
+                <p className="mb-4">&copy; 2024 Charles Nicholson. Licensed under GNU GPL v3 Software License.</p>
                 <div className="flex justify-center space-x-4">
                   <span>
-                    <a href="/" className="hover:underline">Home</a>{" "}|{" "}
-                    <a href="/" className="hover:underline">About</a>{" "}|{" "}
-                    <a href="/" className="hover:underline">Contact</a>{" "}|{" "}
-                    <a href="/" className="hover:underline">Help</a>
+                    <a href="https://github.com/crnicholson/Plant-Monitor/blob/main/README.md#about" className="hover:underline">About</a>{" "}|{" "}
+                    {/* <a href="/" className="hover:underline">Contact</a>{" "}|{" "} */}
+                    <a href="https://github.com/crnicholson/Plant-Monitor/blob/main/README.md#need-help?" className="hover:underline">Help</a>
                   </span>
                 </div>
               </div>
@@ -63,13 +62,12 @@ export default function Landing() {
       <footer className="block lg:hidden text-gray-400 pt-[80px] bg-[#00335B] p-10">
         <div className="container mx-auto text-center">
           <p>Made with Next.js, Flask, and Auth0. Hosted on Nest and Vercel. Open source on <a className="underline" href="https://github.com/crnicholson/Plant-Monitor/">GitHub</a>.</p>
-          <p className="mb-4">&copy; 2024 Charles Nicholson. Licensed under MIT Software License.</p>
+          <p className="mb-4">&copy; 2024 Charles Nicholson. Licensed under GNU GPL v3 Software License.</p>
           <div className="flex justify-center space-x-4">
             <span>
-              <a href="/" className="hover:underline">Home</a>{" "}|{" "}
-              <a href="/" className="hover:underline">About</a>{" "}|{" "}
-              <a href="/" className="hover:underline">Contact</a>{" "}|{" "}
-              <a href="/" className="hover:underline">Help</a>
+              <a href="https://github.com/crnicholson/Plant-Monitor/blob/main/README.md#about" className="hover:underline">About</a>{" "}|{" "}
+              {/* <a href="/" className="hover:underline">Contact</a>{" "}|{" "} */}
+              <a href="https://github.com/crnicholson/Plant-Monitor/blob/main/README.md#need-help?" className="hover:underline">Help</a>
             </span>
           </div>
         </div>

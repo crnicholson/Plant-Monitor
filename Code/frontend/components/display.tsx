@@ -99,9 +99,13 @@ export default function Display() {
             </div>
             <div className="sensor-list mt-3 flex gap-3 flex-col">
                 <h1 className="mt-6 mb-1 text-3xl font-bold">Your Data</h1>
-                {sensorList.map(sensor => (
-                    <Sensor key={sensor} station={sensor} />
-                ))}
+                {sensorList.length === 0 ? (
+                    <p className="text-xl text-gray-600">Add a sensor to get started!</p>
+                ) : (
+                    sensorList.map(sensor => (
+                        <Sensor key={sensor} station={sensor} />
+                    ))
+                )}
             </div>
         </>
     );
