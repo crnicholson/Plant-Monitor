@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: inter;
-    src: url(../public/inter.ttf);
-}
-
-@font-face {
-    font-family: epilogue;
-    src: url(../public/epilogue.ttf);
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9fafb;
+    color: #00335B;
 }

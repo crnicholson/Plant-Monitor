@@ -1,5 +1,5 @@
 {
-  "name": "frontendv3",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^3.5.0",
-    "dotenv": "^16.4.5",
+    "chart.js": "^4.4.3",
     "next": "14.2.5",
+    "papaparse": "^5.4.1",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",

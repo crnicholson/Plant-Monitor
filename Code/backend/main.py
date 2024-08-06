@@ -1,169 +1,228 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
-import os
 import json
+from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+import os
+from dotenv import load_dotenv
 import pandas as pd
-import secrets
-
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
+import requests
 
 cwd = os.getcwd()
-users_file = os.path.join(cwd, "users.json")
 
-if os.path.exists(users_file):
-    with open(users_file, "r") as f:
-        users = json.load(f)
-else:
-    users = {}
+load_dotenv(".env.local")
 
+TOKEN = os.getenv("MGMT_API_ACCESS_TOKEN")
 
-def save_users():
-    with open(users_file, "w") as f:
-        json.dump(users, f, indent=4)
+app = Flask(__name__)
+CORS(app)
 
 
-@app.route("/register", methods=["POST"])
-def register():
-    received = request.get_json()
-    username = received["username"]
-    password = received["password"]
-    stations = received["stations"].replace(", ", ",")
-    aliases = received["aliases"].replace(", ", ",")
-
-    if username in users:
-        return jsonify({"error": "User already exists"}), 400
-
-    users[username] = {
-        "password": password,
-        "stations": stations,
-        "aliases": aliases,
-        "token": None,
-    }
-
-    save_users()
-    return "User created successfully", 201
+def read_json(file):
+    try:
+        with open(file, "r") as file:
+            return json.loads(file.read())
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
+        return {}
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return {}
 
 
-@app.route("/login", methods=["POST"])
-def login():
-    received = request.get_json()
-    username = received["username"]
-    password = received["password"]
-
-    user = users.get(username)
-    if user and user["password"] == password:
-        token = secrets.token_hex(16)
-        user["token"] = token
-        response = {
-            "token": token,
-            "stations": user["stations"],
-            "aliases": user["aliases"],
-        }
-        save_users()
-        return jsonify(response), 200
-    else:
-        return jsonify({"error": "Invalid username or password"}), 401
+def write_json(data, input):
+    try:
+        with open(input, "w") as file:
+            json.dump(data, file, indent=4)
+    except Exception as e:
+        print(f"Error writing JSON: {e}")
 
 
-def validate_token(token):
-    for user in users.values():
-        if user["token"] == token:
-            return user
-    return None
+def get_users():
+    response = requests.get(
+        "https://dev-x5fymzmitaph36zd.us.auth0.com/api/v2/users",
+        headers={"Accept": "application/json", "Authorization": TOKEN},
+    )
+    return response.json()
 
 
-@app.route("/devices", methods=["POST"])
+@app.route("/get-station-data", methods=["POST"])
 def get_data():
-    token = request.headers.get("Authorization")
-    user = validate_token(token)
-    if not user:
-        return "Unauthorized", 401
-
     received = request.get_json()
-    devices = received["devices"].replace(", ", ",").split(",")
-    print(devices)
-
-    jsonPacket = []
-
-    for device in devices:
-        device = int(device)
-        path = f"{cwd}/data/{device}.csv"
+    station = int(received["station"])
+    owner = received["owner"]
+    users = read_json("users.json")
+    if owner in users:
+        path = f"{cwd}/data/{station}.csv"
         if os.path.exists(path):
             df = pd.read_csv(path)
             latest_data = df.iloc[-1]
+
+            alias = ""
+            for element in range(len(users[owner])):
+                if users[owner][element] == station:
+                    alias = users[owner][element + 1]
+                    break
+
             packet = {
-                "alias": user["aliases"].split(",")[
-                    user["stations"].split(",").index(str(device))
-                ],
                 "device": int(latest_data[1]),
                 "soilHumidity": int(latest_data[2]),
-                "airHumidity": int(latest_data[3]),
+                "humidity": int(latest_data[3]),
                 "temperature": float(latest_data[4]),
                 "pressure": float(latest_data[5]),
                 "time": str(latest_data[6]),
+                "frequency": int(latest_data[7]),
+                "alias": alias,
             }
-            jsonPacket.append(packet)
 
-    json_response = json.dumps(jsonPacket)
-    print(json_response)
-    return json_response, 200
-
-
-@app.route("/update-stations", methods=["POST"])
-def update_stations():
-    token = request.headers.get("Authorization")
-    user = validate_token(token)
-    if not user:
-        return "Unauthorized", 401
-
-    received = request.get_json()
-    new_stations = received["stations"].replace(", ", ",")
-    new_aliases = received["aliases"].replace(", ", ",")
-
-    user["stations"] = new_stations
-    user["aliases"] = new_aliases
-
-    save_users()
-    return "Success", 200
-
-
-@app.route("/download-csv", methods=["POST", "OPTIONS"])
-@cross_origin(supports_credentials=True)
-def download_csv():
-    token = request.headers.get("Authorization")
-    user = validate_token(token)
-    if not user:
-        return "Unauthorized", 401
-
-    received = request.get_json()
-    devices = received["devices"]
-    devices = devices.replace(" ", "")
-    devices = devices.split(",")
-
-    data_frames = []
-    for device in devices:
-        device = int(device)
-        path = f"{cwd}/data/{device}.csv"
-        if os.path.exists(path):
-            df = pd.read_csv(path)
-            df["alias"] = user["aliases"].split(",")[
-                user["stations"].split(",").index(str(device))
-            ]
-            data_frames.append(df)
-
-    if data_frames:
-        all_data = pd.concat(data_frames)
-        csv_data = all_data.to_csv(index=False)
-        response = app.response_class(
-            response=csv_data,
-            mimetype="text/csv",
-            headers={"Content-Disposition": "attachment;filename=data.csv"},
-        )
-        return response
+        json_response = json.dumps(packet)
+        print("\nSending packet:\n" + json_response + " \n")
+        return json_response, 200
     else:
-        return "No data found", 404
+        return "Unauthorized", 401
+
+
+@app.route("/add-sensor", methods=["POST"])
+def add_sensor():
+    received = request.get_json()
+    station = str(received["station"])
+    alias = received["alias"]
+    owner = received["owner"]
+    password = received["password"]
+    users = read_json("users.json")
+    stations = read_json("stations.json")
+    if stations[station] != password:
+        print("\nAdding sensor failed, password incorrect.\n")
+        return "Password incorrect.", 401
+    station = int(station)
+    for name, sensors in users.items():
+        if station in sensors:
+            print("\nSensor already exists.\n")
+            return "Sensor already exists.", 400
+    if owner not in users:
+        users[owner] = [station, alias]
+    else:
+        users[owner] += [station, alias]
+    write_json(users, "users.json")
+    return "Sensor added", 200
+
+
+@app.route("/remove-sensor", methods=["POST"])
+def remove_sensor():
+    received = request.get_json()
+    station = int(received["station"])
+    owner = received["owner"]
+    users = read_json("users.json")
+    if owner in users:
+        for element in range(len(users[owner])):
+            print(element)
+            if users[owner][element] == station:
+                print(users[owner].pop(element))
+                print(users[owner].pop(element))
+                break
+        write_json(users, "users.json")
+        return "Sensor removed", 200
+    else:
+        return "Unauthorized", 401
+
+
+@app.route("/get-station-list", methods=["POST"])
+def get_station_list():
+    received = request.get_json()
+    owner = received["owner"]
+    users = read_json("users.json")
+    if owner in users:
+        station_list = []
+        for element in range(0, len(users[owner]), 2):
+            station = users[owner][element]
+            station_list.append(station)
+        return jsonify({"stations": station_list}), 200
+    else:
+        return "Unauthorized", 401
+
+
+@app.route("/update-alias", methods=["POST"])
+def update_alias():
+    received = request.get_json()
+    station = int(received["station"])
+    alias = received["alias"]
+    owner = received["owner"]
+    users = read_json("users.json")
+    if owner in users:
+        for i in range(0, len(users[owner]), 2):
+            if users[owner][i] == station:
+                users[owner][i + 1] = alias
+                break
+        write_json(users, "users.json")
+        return "Alias updated", 200
+    else:
+        return "Unauthorized", 401
+
+
+@app.route("/get-csv", methods=["POST"])
+def get_csv():
+    received = request.get_json()
+    station = received["station"]
+
+    path = f"{cwd}/data/{station}.csv"
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+        df.to_csv(path, index=False)
+        return send_file(path, as_attachment=True)
+    else:
+        return "File not found.", 404
+
+
+@app.route("/get-chart-data", methods=["POST"])
+def get_chart_data():
+    received = request.get_json()
+    station = int(received["station"])
+    path = f"{cwd}/data/{station}.csv"
+
+    packet = {
+        "soil": [],
+        "humidity": [],
+        "temp": [],
+        "time": [],
+    }
+
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+        for row in range(len(df)):
+            soil = int(df.iloc[row, 2])
+            humidity = int(df.iloc[row, 3])
+            temp = int(df.iloc[row, 4])
+            time = str(df.iloc[row, 6])
+            packet["soil"].append(soil)
+            packet["humidity"].append(humidity)
+            packet["temp"].append(temp)
+            packet["time"].append(time)
+
+        # if len(packet["time"]) <= 1000:
+        #     return jsonify(packet), 200
+
+        # if len(packet["time"]) > 4:
+        #     interval = len(packet["time"]) // 3
+        #     packet["time"] = [
+        #         packet["time"][0],
+        #         packet["time"][interval],
+        #         packet["time"][2 * interval],
+        #         packet["time"][-1],
+        #     ]
+
+        return jsonify(packet), 200
+    else:
+        return "File not found.", 404
+
+
+# @app.route("/get-chart-data", methods=["POST"])
+# def get_chart_data():
+#     data = {
+#         "soil": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+#         "humidity": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+#         "temp": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+#         "time": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+#     }
+#     return jsonify(data)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=7359)
+    app.run(debug=True, port=5000)

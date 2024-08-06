@@ -114,11 +114,10 @@ export default function Sensor({ station }: { station: string }) {
         return 0;
     };
 
-
     return (
         <>
             {/* Desktop card */}
-            <div className="hidden md:block w-full p-6 bg-white shadow-lg rounded-lg text-gray-700 transition duration-500 hover:scale-105 transform hover:shadow-2xl">
+            <div className="hidden md:block w-full p-6 bg-white shadow-lg rounded-lg text-gray-700 transition duration-500 hover:scale-[1.02] transform hover:shadow-2xl">
                 <div className="flex justify-between items-center mb-4">
                     <div>
                         <h1 className="text-2xl font-bold">{data?.alias || "Loading..."}</h1>
@@ -178,15 +177,19 @@ export default function Sensor({ station }: { station: string }) {
                         <span>{data?.time ?? "Loading..."}</span>
                     </div>
                 </div>
-                <Chart station={station} />
+                <div className="mt-[25px] max-h-[300px] w-full justify-center items-center flex">
+                    <Chart id={station} />
+                </div>
             </div>
 
             {/* Mobile card */}
-            <div className="block md:hidden w-full p-4 bg-white shadow-md rounded-md text-gray-700 transition duration-500 hover:scale-105 transform">
+            <div className="block md:hidden w-full p-4 bg-white shadow-md rounded-md text-gray-700 transition duration-500 hover:scale-[1.025] transform">
                 <div className="mb-4">
                     <h1 className="text-xl font-bold">{data?.alias || "Loading..."}</h1>
                     <p className="text-md text-gray-500">Sensor: {data?.device || "Loading..."}</p>
-                    <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a>
+                    <span>
+                        <a className="underline text-sm italic" onClick={() => removeSensor(station)}>Remove</a> | <a className="underline text-sm italic" onClick={() => downloadCSV()}>Download</a>
+                    </span>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2">
@@ -239,7 +242,9 @@ export default function Sensor({ station }: { station: string }) {
                         Update
                     </button>
                 </div>
-                <Chart station={station} />
+                <div className="mt-[25px] flex justify-center items-center">
+                    <Chart id={station} />
+                </div>
             </div>
         </>
     );
