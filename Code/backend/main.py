@@ -82,25 +82,40 @@ def get_data():
 
 @app.route("/add-sensor", methods=["POST"])
 def add_sensor():
+
+    print("\n\nTHIS HAPPENED\n\n")
+
     received = request.get_json()
+
     station = str(received["station"])
     alias = received["alias"]
     owner = received["owner"]
     password = received["password"]
     users = read_json("users.json")
     stations = read_json("stations.json")
+
+    print(f"\nReceived station: {station}")
+    print(f"Stations: {stations}\n")
+
+    if station not in stations:
+        print(f"\nStation {station} does not exist.\n")
+        return "Station does not exist.", 404
+
     if stations[station] != password:
         print("\nAdding sensor failed, password incorrect.\n")
         return "Password incorrect.", 401
+
     station = int(station)
     for name, sensors in users.items():
         if station in sensors:
             print("\nSensor already exists.\n")
             return "Sensor already exists.", 400
+
     if owner not in users:
         users[owner] = [station, alias]
     else:
         users[owner] += [station, alias]
+
     write_json(users, "users.json")
     return "Sensor added", 200
 
