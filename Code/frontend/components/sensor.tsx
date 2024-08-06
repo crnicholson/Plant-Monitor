@@ -24,7 +24,7 @@ export default function Sensor({ station }: { station: string }) {
     const removeSensor = async (station: string) => {
         if (!user) return;
 
-        const response = await fetch('http://127.0.0.1:5000/remove-sensor', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/remove-sensor', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export default function Sensor({ station }: { station: string }) {
     const getStationData = async (station: string) => {
         if (!user) return;
 
-        const response = await fetch('http://127.0.0.1:5000/get-station-data', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/get-station-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Sensor({ station }: { station: string }) {
 
         if (!alias) return;
 
-        const response = await fetch('http://127.0.0.1:5000/update-alias', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/update-alias', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export default function Sensor({ station }: { station: string }) {
     const downloadCSV = async () => {
         if (!user) return;
 
-        const response = await fetch('http://127.0.0.1:5000/get-csv', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/get-csv', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

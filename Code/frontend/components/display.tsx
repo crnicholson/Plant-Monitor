@@ -17,7 +17,7 @@ export default function Display() {
 
     const getStationList = async () => {
         if (!user) return;
-        const response = await fetch('http://127.0.0.1:5000/get-station-list', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/get-station-list', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export default function Display() {
             return;
         }
 
-        const response = await fetch('http://127.0.0.1:5000/add-sensor', {
+        const response = await fetch('https://plant.cnicholson.hackclub.app/add-sensor', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

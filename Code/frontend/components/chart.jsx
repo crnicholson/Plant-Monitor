@@ -33,7 +33,7 @@ export default function Chart({ id }) {
         async function getChartData() {
             try {
                 console.log("Fetching data...");
-                const response = await fetch('http://127.0.0.1:5000/get-chart-data', {
+                const response = await fetch('https://plant.cnicholson.hackclub.app/get-chart-data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
