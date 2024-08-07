@@ -36,3 +36,5 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define SPREADING_FACTOR 10 // Spreading factor of the LoRa communication. Learn more here: https://forum.arduino.cc/t/what-are-the-best-settings-for-a-lora-radio/449528.
 #define BANDWIDTH 62.5E3    // Bandwidth of the LoRa.
 #define PACKET_FREQUENCY 30 // How many packets of data per hour?
+
+#define DEVICE_ID 1234 // ID of the device, used to identify the device.

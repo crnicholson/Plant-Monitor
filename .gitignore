@@ -4,3 +4,4 @@
 .lck
 ~groundMonitor.kicad_pcb.lck
 .env.local
+secrets.h

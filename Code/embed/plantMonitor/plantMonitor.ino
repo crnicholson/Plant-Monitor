@@ -52,6 +52,7 @@ void setup() {
 }
 
 void loop() {
+  packet.txCount++;
   packet.airHumidity = BME280humidity();
   packet.temperature = BME280temperature();
   packet.pressure = BME280pressure();
@@ -59,7 +60,6 @@ void loop() {
   packet.soilHumidity = getWaterLevel();
 
   sendData(packet);
-
 
   Sleep.deeplyFor((60 / PACKET_FREQUENCY) * 60000); // Sleep the MCU for the specified time between packets.
 }

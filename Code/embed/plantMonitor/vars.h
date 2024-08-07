@@ -5,7 +5,7 @@
 
 struct data {
   float soilHumidity, airHumidity, temperature, pressure;
-  uint64_t runtime;
+  int deviceID = DEVICE_ID, txCount;
 };
 
 extern struct data packet;
