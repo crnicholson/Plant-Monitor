@@ -1093,7 +1093,7 @@
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C10"
-			(at 1.946 0.072 270)
+			(at 1.946 0.072 -90)
 			(layer "F.SilkS")
 			(uuid "02f28f64-b909-421d-b67a-88b6057e1dcd")
 			(effects
@@ -6820,7 +6820,7 @@
 			(at 0 -3.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "6edece58-6665-4693-8e18-6b4706baf305")
+			(uuid "3ec64a87-4693-481a-a01a-fbc88fdf491d")
 			(effects
 				(font
 					(size 1 1)
@@ -6831,7 +6831,7 @@
 		(property "Value" "MountingHole"
 			(at 0 3.2 0)
 			(layer "F.Fab")
-			(uuid "8816e393-5d1f-45fd-8349-c82418919415")
+			(uuid "2b53c52e-b99f-4e43-bcb8-d0e0ebba71c1")
 			(effects
 				(font
 					(size 1 1)
@@ -6889,7 +6889,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "e9be5d0c-3ca9-4cca-a80e-a868cfcf064c")
+			(uuid "b07f96e7-77ec-4408-aa47-c3651e77ca2d")
 		)
 		(fp_circle
 			(center 0 0)
@@ -6900,12 +6900,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "081fcba3-3879-4f8d-b05d-146597590dd0")
+			(uuid "b78029cc-baca-4581-9851-b7ba666e4bfe")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "68f2e42a-afbe-420a-ab61-317bdb4223a5")
+			(uuid "ca4c5344-8c8a-4620-a44f-31152d6ceb09")
 			(effects
 				(font
 					(size 1 1)
@@ -6918,7 +6918,7 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "06cc3fca-0a57-4d96-b55e-b25ccba6f7d0")
+			(uuid "a5493ea9-805c-49d3-9c14-ab98ffa0ab22")
 		)
 	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
@@ -10259,7 +10259,7 @@
 				(type solid)
 			)
 			(layer "B.SilkS")
-			(uuid "a87a51f0-da6a-4e90-90f3-577adb642a76")
+			(uuid "c0a88c90-629a-407f-9c34-83a835d422a8")
 		)
 		(fp_line
 			(start 15.24 2.54)

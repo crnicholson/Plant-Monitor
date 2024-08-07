@@ -5,3 +5,6 @@
 ~groundMonitor.kicad_pcb.lck
 .env.local
 secrets.h
+fabrication-toolkit-options.json
+_autosave-plantMonitorAutoroute.kicad_sch
+PCB + Schematic/plantMonitorAutoroute/#auto_saved_files#

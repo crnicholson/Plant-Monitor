@@ -16,9 +16,9 @@
 #define PACKET_FREQUENCY 30 // How many packets of data per hour?
 
 // Pins.
-#define SS_PIN 10
-#define RESET_PIN 9
-#define DIO0_PIN 8
+#define SS_PIN 5
+#define RESET_PIN A0
+#define DIO0_PIN A1
 #define LED 7 // SCK uses pin 13.
 
 // Other.
@@ -108,7 +108,7 @@ void loop() {
 
         http.addHeader("Content-Type", "application/json");
 
-        StaticJsonDocument<256> doc;
+        JsonDocument doc;
         doc["soilHumidity"] = receivedData.soilHumidity;
         doc["airHumidity"] = receivedData.airHumidity;
         doc["temperature"] = receivedData.temperature;

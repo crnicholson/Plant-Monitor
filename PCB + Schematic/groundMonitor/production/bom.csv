@@ -1,0 +1,17 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+AE1,SMA_Amphenol_132289_EdgeMount,1,Antenna,
+"C1, C3, C5",0603,3,10 uF,C19702
+"C2, C4, C6, C7",0603,4,100 nF,C14663
+D1,0603,1,RED,C2286
+J1,PinHeader_1x06_P2.54mm_Vertical,1,FTDI,
+J2,PinHeader_1x11_P2.54mm_Vertical,1,Header,
+J3,BarrelJack_Horizontal,1,5-12 V,
+J4,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,1,USB-C,C136423
+J5,PinHeader_1x03_P2.54mm_Vertical,1,Power,
+R1,0402,1,1 K,C11702
+"R2, R3",0402,2,5.1 K,C25905
+SW1,SW_SPST_CK_RS282G05A3,1,Boot,C2888954
+SW2,SW_SPST_CK_RS282G05A3,1,EN,C2888954
+U1,ESP32-C3-MINI-1_EXP,1,ESP32-C3-MINI-1-N4,
+U2,Ai-Thinker-Ra-01-LoRa,1,Ra-01,C2830750
+U3,SOT-223-3_TabPin2,1,AMS1117-3.3,

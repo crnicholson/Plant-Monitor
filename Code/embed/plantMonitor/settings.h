@@ -28,6 +28,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define DIO0 8           // DIO0 pin of the LoRa module.
 #define BUTTON1 7        // Extra button for user config.
 #define BUTTON2 6        // Extra button for user config.
+#define SOIL_FET 5       // FET to turn on the soil sensor.
 #define WATER_PIN A0     // Analog pin to read the water level.
 #define VOLTMETER_PIN A1 // Analog pin to read the voltage of the battery.
 
