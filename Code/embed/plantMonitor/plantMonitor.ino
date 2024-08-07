@@ -58,6 +58,7 @@ void loop() {
   packet.pressure = BME280pressure();
   packet.runtime = getRuntime();
   packet.soilHumidity = getWaterLevel();
+  packet.volts = getVoltage();
 
   sendData(packet);
 

@@ -211,32 +211,45 @@ def get_chart_data():
             packet["temp"].append(temp)
             packet["time"].append(time)
 
-        # if len(packet["time"]) <= 1000:
-        #     return jsonify(packet), 200
-
-        # if len(packet["time"]) > 4:
-        #     interval = len(packet["time"]) // 3
-        #     packet["time"] = [
-        #         packet["time"][0],
-        #         packet["time"][interval],
-        #         packet["time"][2 * interval],
-        #         packet["time"][-1],
-        #     ]
-
         return jsonify(packet), 200
     else:
         return "File not found.", 404
 
 
-# @app.route("/get-chart-data", methods=["POST"])
-# def get_chart_data():
-#     data = {
-#         "soil": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-#         "humidity": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-#         "temp": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-#         "time": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-#     }
-#     return jsonify(data)
+@app.route("/add-data", methods=["POST"])
+def add_data():
+    received = request.get_json()
+    station = received["deviceID"]
+    soilHumidity = received["soilHumidity"]
+    airHumidity = received["airHumidity"]
+    temperature = received["temperature"]
+    pressure = received["pressure"]
+    volts = received["volts"]
+    txCount = received["txCount"]
+    rxCount = received["rxCount"]
+    frequency = received["frequency"]
+
+    data = {
+        "TX_count": txCount,
+        "Device_number": station,
+        "Soil_humidity": soilHumidity,
+        "Air_humidity": airHumidity,
+        "Temperature": temperature,
+        "Pressure": pressure,
+        "Time": pd.Timestamp.now(),
+        "Frequency": frequency,
+    }
+
+    path = f"{cwd}/data/{station}.csv"
+
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+        df = df.append(data, ignore_index=True)
+    else:
+        df = pd.DataFrame([data])
+
+    df.to_csv(path, index=False)
+    return "Data added", 200
 
 
 if __name__ == "__main__":

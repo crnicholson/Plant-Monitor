@@ -1,12 +1,12 @@
 #include "secrets.h" // Put your WiFi credentials in this file.
-#include "settings.h"
 #include <HTTPClient.h>
 #include <LoRa.h>
 #include <SPI.h>
 #include <WiFi.h>
 
-#define SERVER "https://plant.cnicholson.hackclub.app/" // URI of the server.
-#define BAUD_RATE 115200                                // Baud rate for serial monitor.
+// Enables.
+#define DEVMODE
+#define FAST_LORA
 
 // LoRa, following factors tuned for range.
 #define FREQUENCY 915E6     // Frequency of the LoRa module. 433E6 needs a ham radio license in the US.
@@ -15,16 +15,29 @@
 #define BANDWIDTH 62.5E3    // Bandwidth of the LoRa.
 #define PACKET_FREQUENCY 30 // How many packets of data per hour?
 
-int rxCount;
+// Pins.
+#define SS_PIN 10
+#define RESET_PIN 9
+#define DIO0_PIN 8
+#define LED 7 // SCK uses pin 13.
+
+// Other.
+#define SERVER "https://plant.cnicholson.hackclub.app" // URI of the server.
+#define BAUD_RATE 115200                               // Baud rate for serial monitor.
+
+// Vars.
+long rxCount;
 
 struct data {
-  float soilHumidity, airHumidity, temperature, pressure;
-  int deviceID, txCount;
+  float soilHumidity, airHumidity, temperature, pressure, volts;
+  long deviceID, txCount, frequency;
 } receivedData;
 
 void setup() {
 #ifdef DEVMODE
-  Serial.begin(BAUD_RATE);
+  while (!Serial.begin(BAUD_RATE)) {
+    longBlink(LED);
+  }
   Serial.println("Plant monitoring system, v1.0.");
   Serial.println("Connecting");
 #endif
@@ -80,7 +93,8 @@ void loop() {
 
   if (packetSize > 0) {
     shortBlink(LED);
-    LoRa.readBytes((byte *)&receivedData, sizeof(receivedData)); // Receive packet and put it into a struct.
+    LoRa.readBytes((byte *)&receivedData, sizeof(receivedData));
+
     rxCount++;
 
     // Check if the packet is a valid packet.
@@ -90,15 +104,25 @@ void loop() {
         WiFiClient client;
         HTTPClient http;
 
-        http.begin(client, serverName);
-
-        struct data {
-          float soilHumidity, airHumidity, temperature, pressure;
-          int deviceID, txCount;
-        } receivedData;
+        http.begin(client, serverName + "/add-data");
 
         http.addHeader("Content-Type", "application/json");
-        int httpResponseCode = http.POST("{\"\":\"\",\"sensor\":\"BME280\",\"value1\":\"24.25\",\"value2\":\"49.54\",\"value3\":\"1005.14\"}");
+
+        StaticJsonDocument<256> doc;
+        doc["soilHumidity"] = receivedData.soilHumidity;
+        doc["airHumidity"] = receivedData.airHumidity;
+        doc["temperature"] = receivedData.temperature;
+        doc["pressure"] = receivedData.pressure;
+        doc["deviceID"] = receivedData.deviceID;
+        doc["volts"] = receivedData.volts;
+        doc["txCount"] = receivedData.txCount;
+        doc["rxCount"] = rxCount;
+        doc["frequency"] = receivedData.frequency;
+
+        String requestBody;
+        serializeJson(doc, requestBody);
+
+        int httpResponseCode = http.POST(requestBody);
 
 #ifdef DEVMODE
         Serial.print("HTTP Response code: ");

@@ -22,13 +22,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define FAST_LORA // Enable and disable fast LoRa communication, disregarding other LoRa values.
 
 // Pins.
-#define LED 13       // Onboard LED.
-#define CS 10        // Chip select for the LoRa module.
-#define LORA_RESET 9 // Reset pin of the LoRa module.
-#define DIO0 8       // DIO0 pin of the LoRa module.
-#define WATER_PIN A0 // Analog pin to read the water level.
-#define BUTTON1 7    // Extra button for user config.
-#define BUTTON2 6    // Extra button for user config.
+#define LED 13           // Onboard LED.
+#define CS 10            // Chip select for the LoRa module.
+#define LORA_RESET 9     // Reset pin of the LoRa module.
+#define DIO0 8           // DIO0 pin of the LoRa module.
+#define BUTTON1 7        // Extra button for user config.
+#define BUTTON2 6        // Extra button for user config.
+#define WATER_PIN A0     // Analog pin to read the water level.
+#define VOLTMETER_PIN A1 // Analog pin to read the voltage of the battery.
 
 // LoRa, following factors tuned for range.
 #define FREQUENCY 915E6     // Frequency of the LoRa module. 433E6 needs a ham radio license in the US.
