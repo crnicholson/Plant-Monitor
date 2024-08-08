@@ -1495,6 +1495,232 @@
 				)
 			)
 		)
+		(symbol "Connector_Generic:Conn_01x05"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x05"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x05_1_1"
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 6.35)
+					(end 1.27 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x06"
 			(pin_names
 				(offset 1.016) hide)
@@ -6749,6 +6975,28 @@
 			)
 		)
 	)
+	(global_label "D2"
+		(shape input)
+		(at 100.33 76.2 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0d9a7e9d-59d1-4be6-b1cb-64d742156ccc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 105.7947 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "COUT"
 		(shape input)
 		(at 175.26 139.7 180)
@@ -6767,6 +7015,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SDA"
+		(shape input)
+		(at 100.33 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "157a3f97-4952-4baa-8c1e-6a3cfed2f475")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.8833 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -7035,6 +7305,28 @@
 			)
 		)
 	)
+	(global_label "D2"
+		(shape input)
+		(at 72.39 119.38 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6acc9728-0ce5-4730-a625-114f86e7bd7f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 77.8547 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SDA"
 		(shape input)
 		(at 72.39 104.14 0)
@@ -7101,6 +7393,28 @@
 			)
 		)
 	)
+	(global_label "SCL"
+		(shape input)
+		(at 100.33 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6f4bda94-5733-4eea-bb26-c2af6a1e1b75")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.8228 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "XTAL2"
 		(shape input)
 		(at 72.39 88.9 0)
@@ -7158,6 +7472,28 @@
 		(uuid "7a0044ed-0be9-47b6-8278-72041fcd1083")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 84.5071 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A2"
+		(shape input)
+		(at 72.39 99.06 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7a61a1c2-5e43-423a-bb5d-d8fe15836c56")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 77.6733 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7277,6 +7613,28 @@
 			)
 		)
 	)
+	(global_label "A3"
+		(shape input)
+		(at 100.33 81.28 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8a96bea6-dc3c-42dd-b911-138fcb41d47b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 105.6133 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "RESET"
 		(shape input)
 		(at 96.52 113.03 0)
@@ -7378,6 +7736,28 @@
 		(uuid "a4603a3c-b7da-432e-a5fa-77f091b14cdf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 79.9714 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A3"
+		(shape input)
+		(at 72.39 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b3c7099a-e3a4-4103-b12f-087a1699f1f9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 77.6733 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7554,6 +7934,28 @@
 		(uuid "d423139a-95fe-42a1-9ddc-1e38c505e022")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 83.7814 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A2"
+		(shape input)
+		(at 100.33 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d6017f7b-3ddc-4645-bf8a-28340d6b7c0e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 105.6133 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7779,7 +8181,7 @@
 			(uuid "d34e46a1-0ecb-4994-bd3a-a733229d44ac")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "SW4")
 					(unit 1)
@@ -7845,7 +8247,7 @@
 			(uuid "9b8e0463-c2ee-41d4-8eba-e2d061adedcb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR038")
 					(unit 1)
@@ -7924,7 +8326,7 @@
 			(uuid "0a401308-c1f9-4b49-ba40-890ba4dad493")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R3")
 					(unit 1)
@@ -7991,7 +8393,7 @@
 			(uuid "7ceb67ac-36ff-47fb-8aa4-29764b83f197")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR06")
 					(unit 1)
@@ -8059,7 +8461,7 @@
 			(uuid "23f8d4a2-6fa4-4345-8af0-d24c603e4186")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R6")
 					(unit 1)
@@ -8123,7 +8525,7 @@
 			(uuid "79a089a2-b2ff-4e2b-93de-b6b3e84c5135")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "AE1")
 					(unit 1)
@@ -8189,7 +8591,7 @@
 			(uuid "67dc8c6e-94e6-4bce-a16a-c126a83767d2")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR015")
 					(unit 1)
@@ -8266,7 +8668,7 @@
 			(uuid "dd41d7ba-a837-4af4-bfc8-a8a27d425c00")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R10")
 					(unit 1)
@@ -8345,7 +8747,7 @@
 			(uuid "9a0f3e3d-0d8a-4bee-b213-429c4ad68c5d")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C13")
 					(unit 1)
@@ -8415,7 +8817,7 @@
 			(uuid "541451bf-8d08-41b4-96d7-f13f394aea04")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "SW3")
 					(unit 1)
@@ -8482,7 +8884,7 @@
 			(uuid "bbff6bc4-b21c-4b68-b727-89fc1ad50246")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR032")
 					(unit 1)
@@ -8546,7 +8948,7 @@
 			)
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "H4")
 					(unit 1)
@@ -8612,7 +9014,7 @@
 			(uuid "0c867434-df64-44db-85e0-6c43b7ba0604")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR014")
 					(unit 1)
@@ -8679,7 +9081,7 @@
 			(uuid "e9730c09-46f1-4899-a8d4-7d6a08f2f013")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR039")
 					(unit 1)
@@ -8745,7 +9147,7 @@
 			(uuid "c3371081-910b-4ff0-8f61-e70e8633ecda")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR013")
 					(unit 1)
@@ -8822,7 +9224,7 @@
 			(uuid "3b7f5283-eea2-4c11-9d71-53999ff460c8")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C3")
 					(unit 1)
@@ -8832,7 +9234,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 146.05 146.05 270)
+		(at 146.05 146.05 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8841,7 +9243,7 @@
 		(fields_autoplaced yes)
 		(uuid "29064945-9c61-4b63-adcd-bbac15907364")
 		(property "Reference" "C14"
-			(at 146.0436 139.7 90)
+			(at 146.0563 139.7 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8849,7 +9251,7 @@
 			)
 		)
 		(property "Value" "Soil"
-			(at 146.0436 142.24 90)
+			(at 146.0563 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8890,7 +9292,7 @@
 			(uuid "f1f217bc-adb7-4263-af91-94f7b8d6eae5")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C14")
 					(unit 1)
@@ -8958,7 +9360,7 @@
 			(uuid "11a0ec0a-19a0-441b-9e7a-1aa9efe1824b")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "Y1")
 					(unit 1)
@@ -9037,7 +9439,7 @@
 			(uuid "b19ffb85-8c1a-4cfc-8a80-9da4a675d255")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C8")
 					(unit 1)
@@ -9101,7 +9503,7 @@
 			)
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "H1")
 					(unit 1)
@@ -9168,7 +9570,7 @@
 			(uuid "e1ca8c5a-640c-4adb-8b2b-808c06b78dc8")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR025")
 					(unit 1)
@@ -9235,7 +9637,7 @@
 			(uuid "1274429b-36e8-433e-830f-d7822f8e8679")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR022")
 					(unit 1)
@@ -9300,7 +9702,7 @@
 			(uuid "9850106e-0182-4776-9b2e-f84f1dfa5422")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR019")
 					(unit 1)
@@ -9370,7 +9772,7 @@
 			(uuid "588e01ca-d15f-4fe0-bc2f-9e6e765a73cc")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C12")
 					(unit 1)
@@ -9477,7 +9879,7 @@
 			(uuid "360f0512-89ad-45e7-a684-03d6a7680bc0")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "Q1")
 					(unit 1)
@@ -9543,7 +9945,7 @@
 			(uuid "fc4e2388-724f-4838-8921-04e45c361683")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR04")
 					(unit 1)
@@ -9613,7 +10015,7 @@
 			(uuid "3966dd15-702b-4ef6-bdf6-38ac265b141a")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C6")
 					(unit 1)
@@ -9681,7 +10083,7 @@
 			(uuid "ca08b15f-0a72-4b03-b9db-e3a28edffaf0")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C15")
 					(unit 1)
@@ -9747,7 +10149,7 @@
 			(uuid "e6dd99fc-dbdd-4a37-8045-e78440095bf2")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR036")
 					(unit 1)
@@ -9826,7 +10228,7 @@
 			(uuid "e72668eb-3586-4460-ae52-b68aaef20f12")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C9")
 					(unit 1)
@@ -9893,7 +10295,7 @@
 			(uuid "d6ba1643-698f-4344-ace7-0c21ad0cc6cb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR034")
 					(unit 1)
@@ -9970,7 +10372,7 @@
 			(uuid "f7f875c3-f0b0-4a30-9f83-c422a405947c")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C5")
 					(unit 1)
@@ -10036,7 +10438,7 @@
 			(uuid "0dd57559-e519-460f-8ea2-6c0d85e3204e")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR026")
 					(unit 1)
@@ -10104,7 +10506,7 @@
 			(uuid "e79c122e-1db7-4acd-b490-89c400c322eb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R7")
 					(unit 1)
@@ -10177,7 +10579,7 @@
 			(uuid "57a10a40-55b7-4538-9f61-cb056c5ea7dc")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "SW2")
 					(unit 1)
@@ -10243,7 +10645,7 @@
 			(uuid "596fb79b-470d-49cb-878a-4885d5dc882e")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR016")
 					(unit 1)
@@ -10311,9 +10713,88 @@
 			(uuid "f56085db-f2ee-4283-afed-33aaebf428e8")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x05")
+		(at 95.25 81.28 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "707853e1-97cd-4202-b032-370a1db022a1")
+		(property "Reference" "J3"
+			(at 92.71 82.5501 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "GPIO"
+			(at 92.71 80.0101 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+			(at 95.25 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 95.25 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 95.25 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64f5a3b4-f5ef-40d5-9583-ac4c60295345")
+		)
+		(pin "2"
+			(uuid "9f99c76a-5f10-4fa8-a860-7059d9f763f6")
+		)
+		(pin "5"
+			(uuid "cb9fc771-09de-4d3b-88cc-769fb2360998")
+		)
+		(pin "4"
+			(uuid "e26d4668-29a0-4bea-a03f-70a0b60498a7")
+		)
+		(pin "3"
+			(uuid "7d42fa52-b50a-4ef6-b19b-5bbf9eb098ac")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -10377,7 +10858,7 @@
 			(uuid "3f05a53a-f506-4243-8aed-a58eb660b8f9")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR02")
 					(unit 1)
@@ -10447,7 +10928,7 @@
 			(uuid "3b97e431-8532-4a66-a3a6-dda652a666bb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "BT1")
 					(unit 1)
@@ -10513,7 +10994,7 @@
 			(uuid "e1ac8d1c-2b95-4037-b11d-b858c7cce004")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR05")
 					(unit 1)
@@ -10610,7 +11091,7 @@
 			(uuid "acdea770-cad7-4be1-ac4b-9c7df2270424")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "U3")
 					(unit 1)
@@ -10676,7 +11157,7 @@
 			(uuid "3df423b0-1664-4481-abd4-9bda237a5731")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR08")
 					(unit 1)
@@ -10755,7 +11236,7 @@
 			(uuid "fdce8837-d4e9-4a38-b153-8707bbdd3120")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R2")
 					(unit 1)
@@ -10834,7 +11315,7 @@
 			(uuid "63567ded-4d85-4984-956c-c093141e1530")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "D1")
 					(unit 1)
@@ -10902,7 +11383,7 @@
 			(uuid "4c4fdf61-550c-47b6-9b89-d3954cb0b496")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R5")
 					(unit 1)
@@ -10979,7 +11460,7 @@
 			(uuid "e91fe09f-c890-460d-b732-15384007d6aa")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C10")
 					(unit 1)
@@ -11049,7 +11530,7 @@
 			(uuid "cc88fa36-eb37-4140-8a81-92d666600efc")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C7")
 					(unit 1)
@@ -11119,7 +11600,7 @@
 			(uuid "98ef5002-2c69-49e4-bfeb-3b46753e5bbf")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C16")
 					(unit 1)
@@ -11186,7 +11667,7 @@
 			(uuid "433b121d-f427-4b5b-b161-242ac4ab6100")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR031")
 					(unit 1)
@@ -11265,7 +11746,7 @@
 			(uuid "8e030287-284a-4292-be77-fed2aaa2c989")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C4")
 					(unit 1)
@@ -11329,89 +11810,9 @@
 			)
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x06")
-		(at 26.67 105.41 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8f7f0024-7bac-4d35-a4b4-a0630e52777c")
-		(property "Reference" "J3"
-			(at 26.67 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "FTDI"
-			(at 26.67 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 26.67 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 26.67 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 26.67 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "7047679d-abd8-4b32-8d23-7e07c590cffe")
-		)
-		(pin "1"
-			(uuid "afe15d95-2ea0-46ee-af80-9592af5fca23")
-		)
-		(pin "2"
-			(uuid "b8142ef1-e723-4ff1-b0f1-8e98f66eba80")
-		)
-		(pin "6"
-			(uuid "d7740f7a-9444-40bb-aa38-d89e30b6edfa")
-		)
-		(pin "5"
-			(uuid "79d503a2-8568-4a54-b1c8-08264d3898d4")
-		)
-		(pin "4"
-			(uuid "c8d9375c-435b-4edf-bf78-f6c3995baab3")
-		)
-		(instances
-			(project "plantMonitorAutoroute"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -11473,7 +11874,7 @@
 			)
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "H3")
 					(unit 1)
@@ -11539,7 +11940,7 @@
 			(uuid "d2557af6-3e71-4ca7-8310-68d1cb068caa")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR01")
 					(unit 1)
@@ -11606,7 +12007,7 @@
 			(uuid "4f3eeebb-568d-4aa4-8d52-45054a8c2849")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR024")
 					(unit 1)
@@ -11685,7 +12086,7 @@
 			(uuid "710a3596-5724-4723-91da-6acaf67c77e5")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R4")
 					(unit 1)
@@ -11762,7 +12163,7 @@
 			(uuid "8fe908f1-49bd-456f-bba8-ffd562a04b55")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R9")
 					(unit 1)
@@ -11829,7 +12230,7 @@
 			(uuid "55a29ef6-01d3-48f5-94cd-0312f7d71480")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR021")
 					(unit 1)
@@ -11897,7 +12298,7 @@
 			(uuid "8966cef2-4e09-486f-ad3c-a88aca48bf3b")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C17")
 					(unit 1)
@@ -11963,7 +12364,7 @@
 			(uuid "6cea7993-69d1-459d-84e5-931d6515f881")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR033")
 					(unit 1)
@@ -12043,7 +12444,7 @@
 			(uuid "4b9557d8-0ba4-4bcc-b46c-6b48a756e93c")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "J1")
 					(unit 1)
@@ -12110,7 +12511,7 @@
 			(uuid "ac4e5867-b88c-4124-8bd2-249f83b4c460")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR011")
 					(unit 1)
@@ -12190,7 +12591,7 @@
 			(uuid "a28cc0d0-37c9-487e-b5dc-44f57d247cb7")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "J2")
 					(unit 1)
@@ -12256,7 +12657,7 @@
 			(uuid "39a65d95-18ec-48e0-96a4-b75dbf48a3e7")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR017")
 					(unit 1)
@@ -12322,7 +12723,7 @@
 			(uuid "c80a9ac1-8cf0-4aa6-a6f9-ebe030559ad2")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR037")
 					(unit 1)
@@ -12399,7 +12800,7 @@
 			(uuid "49e5c011-c0ce-4a35-80c9-2997dbe93eb4")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C1")
 					(unit 1)
@@ -12487,7 +12888,7 @@
 			(uuid "6428d98c-b416-4047-b3a1-f1b67248d084")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "D2")
 					(unit 1)
@@ -12557,7 +12958,7 @@
 			(uuid "35a833cc-e921-4c99-a826-f919f8f126fa")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R8")
 					(unit 1)
@@ -12625,7 +13026,7 @@
 			(uuid "72606655-c1dc-4bd5-af3b-e2dd11b3f26c")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R11")
 					(unit 1)
@@ -12695,7 +13096,7 @@
 			(uuid "047b7677-f16b-44f8-aaca-f2986f218b1b")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "SW1")
 					(unit 1)
@@ -12762,7 +13163,7 @@
 			(uuid "639d64c1-e31b-496b-a014-2174a6c6c63a")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR018")
 					(unit 1)
@@ -12828,7 +13229,7 @@
 			(uuid "31b76342-045d-412f-a14c-127a7855ffaa")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR012")
 					(unit 1)
@@ -12894,7 +13295,7 @@
 			(uuid "395d5ba8-bc27-4742-8f49-16b2dce08e72")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR028")
 					(unit 1)
@@ -12961,7 +13362,7 @@
 			(uuid "36b12a5c-d185-4820-90f3-f88760eb6362")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR035")
 					(unit 1)
@@ -13027,7 +13428,7 @@
 			(uuid "9776a964-2de2-42c2-8727-7b0258095895")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR020")
 					(unit 1)
@@ -13189,7 +13590,7 @@
 			(uuid "14f804f6-0f9b-4b34-b878-cf5a89603a43")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "U1")
 					(unit 1)
@@ -13266,7 +13667,7 @@
 			(uuid "c54ea9c2-c32f-48ef-8ad3-46f5e47baa80")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C2")
 					(unit 1)
@@ -13332,7 +13733,7 @@
 			(uuid "1983041b-b96e-4b1a-b673-23919bcf81eb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR010")
 					(unit 1)
@@ -13409,7 +13810,7 @@
 			(uuid "c9d6619c-0b31-48d7-90b3-cacad6ae45eb")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "C11")
 					(unit 1)
@@ -13475,7 +13876,7 @@
 			(uuid "0468080c-7887-482c-b982-c45e244517c5")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR030")
 					(unit 1)
@@ -13545,7 +13946,7 @@
 			(uuid "208efe13-2b6c-4553-a6a7-88122cc77f4c")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R1")
 					(unit 1)
@@ -13611,7 +14012,7 @@
 			(uuid "96ce55da-7a99-4812-a918-1994ae85ec41")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR03")
 					(unit 1)
@@ -13678,7 +14079,7 @@
 			(uuid "38f0d28c-00cb-4885-bcc2-45272dbcd728")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR029")
 					(unit 1)
@@ -13799,7 +14200,7 @@
 			(uuid "e8deabfa-945b-4c76-893f-c479ed815d4c")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "U2")
 					(unit 1)
@@ -13866,7 +14267,7 @@
 			(uuid "c6cfbb70-7336-4c3b-913e-f0881fde6e1f")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR07")
 					(unit 1)
@@ -13954,7 +14355,7 @@
 			(uuid "04805455-a663-4007-8bf4-9ff9660b9cd7")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "U4")
 					(unit 1)
@@ -14021,7 +14422,7 @@
 			(uuid "8e55a0e3-3956-451f-acad-d7ffb99d885f")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR023")
 					(unit 1)
@@ -14088,7 +14489,7 @@
 			(uuid "c0ee128a-0b2a-4fb1-9d49-309e86357d32")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR027")
 					(unit 1)
@@ -14154,7 +14555,7 @@
 			(uuid "c4862f1b-e120-4a7c-93d6-f48ea2894073")
 		)
 		(instances
-			(project "plantMonitorAutoroute"
+			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR09")
 					(unit 1)
