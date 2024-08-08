@@ -1,4 +1,4 @@
-23361507867494564
+23363238173805483
 1575AT43A0040E
 ANT_1575AT_JOT
 
@@ -161,7 +161,7 @@ AAA battery holder Keystone
 2
 2
 Battery
-BatteryHolder_Keystone_2468_2xAAA
+BatteryHolder_Keystone_2469_2xAAA
 2xAAA cell battery holder, Keystone P/N 2468, http://www.keyelco.com/product-pdf.cfm?p=1033
 AAA battery cell holder
 0
@@ -55775,6 +55775,13 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+ESP32-C3-MINI-1-N4
+ESP32-C3-MINI-1_EXP
+
+ESP32-C3-MINI-1-N4 
+0
+61
+61
 ESP32-DEVKIT-V1
 MODULE_ESP32_DEVKIT_V1
 
