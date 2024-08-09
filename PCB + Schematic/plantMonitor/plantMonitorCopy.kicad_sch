@@ -2897,127 +2897,6 @@
 				)
 			)
 		)
-		(symbol "Device:R"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:R_Small"
 			(pin_numbers hide)
 			(pin_names
@@ -4776,7 +4655,7 @@
 				)
 			)
 		)
-		(symbol "Timer:TLC555xPS"
+		(symbol "Timer:TLC555xD"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -4789,7 +4668,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "TLC555xPS"
+			(property "Value" "TLC555xD"
 				(at 2.54 8.89 0)
 				(effects
 					(font
@@ -4798,8 +4677,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm"
-				(at 16.51 -10.16 0)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at 21.59 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -4816,7 +4695,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Single LinCMOS Timer, 555 compatible, VSSOP-8"
+			(property "Description" "Single LinCMOS Timer, 555 compatible, SOIC-8"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4834,7 +4713,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "*VSSOP*3.0x3.0mm*P0.65mm*"
+			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4843,7 +4722,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "TLC555xPS_0_0"
+			(symbol "TLC555xD_0_0"
 				(pin power_in line
 					(at 0 -10.16 90)
 					(length 2.54)
@@ -4881,7 +4760,7 @@
 					)
 				)
 			)
-			(symbol "TLC555xPS_0_1"
+			(symbol "TLC555xD_0_1"
 				(rectangle
 					(start -8.89 -7.62)
 					(end 8.89 7.62)
@@ -4905,7 +4784,7 @@
 					)
 				)
 			)
-			(symbol "TLC555xPS_1_1"
+			(symbol "TLC555xD_1_1"
 				(pin input line
 					(at -12.7 5.08 0)
 					(length 3.81)
@@ -5646,6 +5525,12 @@
 		(uuid "0e7d2308-75bc-4753-a831-e91268f8a140")
 	)
 	(junction
+		(at 187.96 129.54)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "220d0aee-f7f4-4bf0-a11a-199403e17f66")
+	)
+	(junction
 		(at 152.4 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5662,6 +5547,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2f36c233-6a72-416d-89f4-009717a65da8")
+	)
+	(junction
+		(at 233.68 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "35ffd517-ea8f-4dda-9bd7-cc47816fecc3")
 	)
 	(junction
 		(at 215.9 144.78)
@@ -5692,18 +5583,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4bf956cd-3328-41c3-872c-19200f987536")
-	)
-	(junction
-		(at 241.3 130.81)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5af7e3a8-f4de-41b9-813c-74e7eaabdfb6")
-	)
-	(junction
-		(at 139.7 27.94)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "791bf223-d52d-4f69-a125-a58f1d80638d")
 	)
 	(junction
 		(at 59.69 55.88)
@@ -5742,10 +5621,16 @@
 		(uuid "aa8538c1-9e30-4d10-ac20-9e82af203515")
 	)
 	(junction
-		(at 233.68 142.24)
+		(at 241.3 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c06b4639-269e-4d70-8bbd-ef6f98bf3c74")
+		(uuid "ab53b325-6b07-42ef-8b88-05c7a90dc466")
+	)
+	(junction
+		(at 139.7 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bc0b7c8a-99d9-4a9c-a2f7-46b463bac64f")
 	)
 	(junction
 		(at 212.09 106.68)
@@ -5758,12 +5643,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d2445071-704f-49bf-bc0b-cd8c48d9a7ce")
-	)
-	(junction
-		(at 187.96 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dc4400a2-12a6-4d84-92a2-5783be668fff")
 	)
 	(junction
 		(at 142.24 130.81)
@@ -5815,6 +5694,16 @@
 	)
 	(wire
 		(pts
+			(xy 240.03 140.97) (xy 241.3 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cea5190-8b42-4651-a189-6f60de1a2170")
+	)
+	(wire
+		(pts
 			(xy 96.52 110.49) (xy 96.52 114.3)
 		)
 		(stroke
@@ -5835,23 +5724,13 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 138.43) (xy 233.68 142.24)
+			(xy 233.68 138.43) (xy 233.68 140.97)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "14acec39-f535-4e9e-b54c-5f4af56f11c0")
-	)
-	(wire
-		(pts
-			(xy 245.11 130.81) (xy 241.3 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "16b6199a-1698-47c0-bf2c-a33f457a5f42")
 	)
 	(wire
 		(pts
@@ -5882,6 +5761,16 @@
 			(type default)
 		)
 		(uuid "2203f66d-e545-42c9-9c1a-240b5e954c5c")
+	)
+	(wire
+		(pts
+			(xy 240.03 152.4) (xy 241.3 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25ca2898-da1c-41af-a4b5-95476df8965e")
 	)
 	(wire
 		(pts
@@ -5952,6 +5841,16 @@
 			(type default)
 		)
 		(uuid "2e5ed458-d598-49de-bfcc-8f9eeb9d8a3b")
+	)
+	(wire
+		(pts
+			(xy 241.3 130.81) (xy 241.3 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fc4a7e7-ca8c-4917-837f-9a9dfb2be01e")
 	)
 	(wire
 		(pts
@@ -6135,6 +6034,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 152.4) (xy 234.95 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74fd21b0-7c95-47bc-8a08-e191c13e4a26")
+	)
+	(wire
+		(pts
 			(xy 148.59 146.05) (xy 149.86 146.05)
 		)
 		(stroke
@@ -6161,7 +6070,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7d75a57b-fc22-4bcd-bb2c-16ff0a48a737")
+		(uuid "7e99748c-77d0-42e4-84fb-fa22b958eeec")
 	)
 	(wire
 		(pts
@@ -6305,6 +6214,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 130.81) (xy 245.11 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9a4a66b-3aa1-4a09-a10c-a067c361d549")
+	)
+	(wire
+		(pts
 			(xy 142.24 125.73) (xy 142.24 130.81)
 		)
 		(stroke
@@ -6312,6 +6231,16 @@
 			(type default)
 		)
 		(uuid "bb862a4e-8c86-46e2-af8e-d8a19fce3edb")
+	)
+	(wire
+		(pts
+			(xy 233.68 140.97) (xy 233.68 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc6edd6c-2375-41aa-b3b3-182e72dc2372")
 	)
 	(wire
 		(pts
@@ -6375,16 +6304,6 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 130.81) (xy 241.3 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d59da38b-6e4f-46d6-8dc6-f26afb684a35")
-	)
-	(wire
-		(pts
 			(xy 187.96 157.48) (xy 228.6 157.48)
 		)
 		(stroke
@@ -6392,16 +6311,6 @@
 			(type default)
 		)
 		(uuid "d73253fe-7bfd-4c55-98bf-81b60dacbe48")
-	)
-	(wire
-		(pts
-			(xy 233.68 142.24) (xy 233.68 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d9b31ab4-bb6c-4ba3-9f69-a73d46c1d078")
 	)
 	(wire
 		(pts
@@ -6512,6 +6421,16 @@
 			(type default)
 		)
 		(uuid "ef75c776-436a-4a56-9db7-bfadeb88a8b5")
+	)
+	(wire
+		(pts
+			(xy 233.68 140.97) (xy 234.95 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0dc972f-2c3f-4c21-b08b-c32e9404b9cb")
 	)
 	(wire
 		(pts
@@ -8120,76 +8039,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 262.89 93.98 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "01ef1b71-10b2-4c94-9caa-6b3b4e9c35ba")
-		(property "Reference" "SW4"
-			(at 264.16 92.7099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BUTTON2"
-			(at 264.16 95.2499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
-			(at 257.81 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 257.81 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 262.89 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e3122246-781c-4091-a076-6f6f76103e85")
-		)
-		(pin "2"
-			(uuid "d34e46a1-0ecb-4994-bd3a-a733229d44ac")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "SW4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "GND_16")
 		(lib_id "power:GND")
 		(at 245.11 130.81 0)
@@ -8411,7 +8260,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "08efccca-88f0-4902-a6f5-91f0aebd9482")
-		(property "Reference" "R6"
+		(property "Reference" "R9"
 			(at 213.36 134.62 90)
 			(effects
 				(font
@@ -8454,6 +8303,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25867"
+			(at 213.36 139.7 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "226aa518-2c65-473c-9582-1787dfe3c38b")
 		)
@@ -8463,7 +8321,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R6")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -8600,232 +8458,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 237.49 152.4 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0b1ac8bf-02b9-4702-88af-943c68d7cc7e")
-		(property "Reference" "R10"
-			(at 237.49 147.32 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10"
-			(at 237.49 149.86 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 237.49 154.178 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 237.49 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 237.49 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25077"
-			(at 237.49 152.4 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bcdea6f2-b593-44ae-9bb1-a5abea006423")
-		)
-		(pin "2"
-			(uuid "dd41d7ba-a837-4af4-bfc8-a8a27d425c00")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 157.48 132.08 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "15789917-1da1-49d9-9fab-d0a3d0214afb")
-		(property "Reference" "C13"
-			(at 160.02 130.8162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100 nF"
-			(at 160.02 133.3562 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 157.48 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 157.48 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 157.48 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
-			(at 157.48 132.08 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a2645355-2dc1-4493-a5e3-ceb17896ae51")
-		)
-		(pin "2"
-			(uuid "9a0f3e3d-0d8a-4bee-b213-429c4ad68c5d")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 255.27 93.98 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "16934e36-8c6a-40f2-8b36-081271afbcab")
-		(property "Reference" "SW3"
-			(at 251.46 92.7099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BUTTON1"
-			(at 251.46 95.2499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
-			(at 250.19 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 250.19 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 255.27 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "11f89e54-fbb7-464e-9fab-b71526a881f2")
-		)
-		(pin "2"
-			(uuid "541451bf-8d08-41b4-96d7-f13f394aea04")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "SW3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "+3.3V_3")
 		(lib_id "power:+3.3V")
 		(at 255.27 88.9 0)
@@ -8902,7 +8534,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "18cc5bdf-7839-4a75-847b-01bd4c8adbdf")
-		(property "Reference" "H4"
+		(property "Reference" "H1"
 			(at 265.8141 151.892 0)
 			(effects
 				(font
@@ -8950,7 +8582,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "H4")
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -9156,6 +8788,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 142.24 27.94 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "26480455-f009-4828-bc16-d63c7e1b4096")
+		(property "Reference" "R4"
+			(at 142.24 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1 M"
+			(at 142.24 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 142.24 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 142.24 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 142.24 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C26083"
+			(at 142.24 27.94 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f0a48ceb-6cbd-4974-a025-587e096d47fb")
+		)
+		(pin "1"
+			(uuid "6028638f-b0c8-4d3a-9367-0b49b0c2e43a")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 55.88 55.88 270)
 		(unit 1)
@@ -9165,7 +8874,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2707b6f8-71e9-4bdd-bfad-8d2d83329995")
-		(property "Reference" "C3"
+		(property "Reference" "C9"
 			(at 55.8736 49.53 90)
 			(effects
 				(font
@@ -9226,7 +8935,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C3")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -9242,7 +8951,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "29064945-9c61-4b63-adcd-bbac15907364")
-		(property "Reference" "C14"
+		(property "Reference" "C17"
 			(at 146.0563 139.7 90)
 			(effects
 				(font
@@ -9294,7 +9003,86 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C14")
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 262.89 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2ccf2af9-56b9-4aa9-bbfb-37795870a60b")
+		(property "Reference" "SW1"
+			(at 264.16 92.7099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "BUTTON2"
+			(at 264.16 95.2499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
+			(at 257.81 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 257.81 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 262.89 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2888954"
+			(at 262.89 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9bb7ebff-7ba7-4c37-b556-f394ac79183d")
+		)
+		(pin "2"
+			(uuid "6326ae4f-677d-4e13-b067-527cacba2b12")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -9378,7 +9166,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3439bc41-0ecf-433f-8120-2f0e944b34d7")
-		(property "Reference" "C8"
+		(property "Reference" "C3"
 			(at 176.53 90.1762 0)
 			(effects
 				(font
@@ -9441,7 +9229,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C8")
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -9457,7 +9245,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "388f837a-43e5-4f61-9b6b-e72a34e9603c")
-		(property "Reference" "H1"
+		(property "Reference" "H2"
 			(at 265.684 134.0871 0)
 			(effects
 				(font
@@ -9505,7 +9293,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "H1")
+					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -9720,7 +9508,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "41177cba-b150-458d-bdad-20bd97dbb504")
-		(property "Reference" "C12"
+		(property "Reference" "C13"
 			(at 218.44 146.0562 0)
 			(effects
 				(font
@@ -9738,7 +9526,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 215.9 147.32 0)
 			(effects
 				(font
@@ -9765,6 +9553,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1620"
+			(at 215.9 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "354ede47-c086-4166-9b0a-b75dece1324d")
 		)
@@ -9774,7 +9571,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C12")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -9963,7 +9760,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "455aa21f-7248-48b1-8856-cd7f67f1c271")
-		(property "Reference" "C6"
+		(property "Reference" "C7"
 			(at 91.44 53.3462 0)
 			(effects
 				(font
@@ -10008,6 +9805,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1555"
+			(at 88.9 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f7d74d73-b01a-4291-a613-daca841cab7c")
 		)
@@ -10017,75 +9823,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 146.05 125.73 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "49c4d5aa-db56-44ca-9dfe-99152c0c46dd")
-		(property "Reference" "C15"
-			(at 146.0436 119.38 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1 nF"
-			(at 146.0436 121.92 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 146.05 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 146.05 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 146.05 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "92eeac8e-d25d-4cb1-992c-d8b8fc84cce3")
-		)
-		(pin "2"
-			(uuid "ca08b15f-0a72-4b03-b9db-e3a28edffaf0")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C15")
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -10167,7 +9905,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52acc4fb-bbe2-418f-96b7-96091a552351")
-		(property "Reference" "C9"
+		(property "Reference" "C4"
 			(at 187.96 90.1762 0)
 			(effects
 				(font
@@ -10230,7 +9968,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C9")
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -10456,7 +10194,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5bd7fb5d-b9bf-4808-a1ee-0bad08a995d1")
-		(property "Reference" "R7"
+		(property "Reference" "R12"
 			(at 146.05 133.35 90)
 			(effects
 				(font
@@ -10508,7 +10246,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R7")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -10524,7 +10262,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6ae72561-c4fe-4216-a80c-ba2795f2b279")
-		(property "Reference" "SW2"
+		(property "Reference" "SW4"
 			(at 129.54 30.4799 90)
 			(effects
 				(font
@@ -10581,7 +10319,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "SW2")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -10663,7 +10401,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7058a152-ff60-43dd-911f-93718fde4ef8")
-		(property "Reference" "R12"
+		(property "Reference" "R5"
 			(at 149.86 22.86 90)
 			(effects
 				(font
@@ -10706,6 +10444,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C26083"
+			(at 149.86 27.94 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "49982139-98d5-4a87-b207-cf19ba387984")
 		)
@@ -10715,7 +10462,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R12")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -10795,6 +10542,103 @@
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Timer:TLC555xD")
+		(at 187.96 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "720ef7e9-3936-4343-91b0-f8d45e1bc3ed")
+		(property "Reference" "U5"
+			(at 190.1541 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TLC555CDR"
+			(at 190.1541 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 209.55 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlc555.pdf"
+			(at 209.55 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single LinCMOS Timer, 555 compatible, SOIC-8"
+			(at 187.96 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C6986"
+			(at 187.96 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "82b61f07-c292-45f7-b041-82efc2011079")
+		)
+		(pin "5"
+			(uuid "986f4f7b-d14b-4680-b3cf-49210749d9ca")
+		)
+		(pin "6"
+			(uuid "b96ed07c-b785-482f-bde4-9b7d0013c889")
+		)
+		(pin "2"
+			(uuid "07ee5b50-e4f9-49dc-a0db-a35f88d245bd")
+		)
+		(pin "7"
+			(uuid "8c6a3633-d9cd-4350-a1b5-e7a3000bea34")
+		)
+		(pin "4"
+			(uuid "3d0d62d6-ccfa-4c80-9b7b-20b6d4c19176")
+		)
+		(pin "1"
+			(uuid "b92e3c27-19ae-4bc8-9b53-5786b77af764")
+		)
+		(pin "3"
+			(uuid "dcd98ed8-2aed-44a2-a0e8-c6c0db127a4d")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -11012,7 +10856,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7a034bd9-d4f3-4fa3-987b-71e68ae7df50")
-		(property "Reference" "U3"
+		(property "Reference" "U1"
 			(at 127.4064 83.82 0)
 			(effects
 				(font
@@ -11093,7 +10937,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "U3")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -11333,7 +11177,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "81816f1b-7433-4f48-9aaf-9d791a16bfb6")
-		(property "Reference" "R5"
+		(property "Reference" "R10"
 			(at 213.36 127 90)
 			(effects
 				(font
@@ -11376,6 +11220,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25104"
+			(at 213.36 132.08 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "07fe8670-db6b-4b2d-ab46-fcae8429f53a")
 		)
@@ -11385,7 +11238,86 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R5")
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 255.27 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8645f479-2612-4752-88f9-9ac481ebf3c5")
+		(property "Reference" "SW2"
+			(at 251.46 95.2501 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BUTTON1"
+			(at 251.46 92.7101 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2888954"
+			(at 255.27 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "41cbc59b-0a7e-4475-99a2-ac68c58be2ee")
+		)
+		(pin "2"
+			(uuid "eacdf376-e1b1-4642-8fe7-32476c22e19d")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -11401,7 +11333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "86dae0c7-252d-4dc5-93da-4b6cc3e967df")
-		(property "Reference" "C10"
+		(property "Reference" "C2"
 			(at 127.0063 63.5 90)
 			(effects
 				(font
@@ -11462,7 +11394,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C10")
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -11478,7 +11410,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8795df2b-1515-48bf-9bf0-4135bc442351")
-		(property "Reference" "C7"
+		(property "Reference" "C6"
 			(at 104.14 53.3335 0)
 			(effects
 				(font
@@ -11523,6 +11455,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1555"
+			(at 101.6 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3bde628a-d12b-44a2-a6b8-44c4b90d86df")
 		)
@@ -11532,7 +11473,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C7")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -11548,7 +11489,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "883b2515-b1e1-420f-b07f-6d45deedfde4")
-		(property "Reference" "C16"
+		(property "Reference" "C15"
 			(at 123.19 139.7062 0)
 			(effects
 				(font
@@ -11593,6 +11534,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C15195"
+			(at 120.65 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "de039363-def8-4133-acc2-4df46310d6cf")
 		)
@@ -11602,7 +11552,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C16")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -11685,7 +11635,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b3e8484-7117-4d8c-a00c-38476348cb1b")
-		(property "Reference" "C4"
+		(property "Reference" "C10"
 			(at 43.18 60.9535 0)
 			(effects
 				(font
@@ -11748,7 +11698,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C4")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -11764,7 +11714,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8f245e8e-6f38-4a7f-98eb-59c75de30d40")
-		(property "Reference" "H2"
+		(property "Reference" "H4"
 			(at 265.8141 140.208 0)
 			(effects
 				(font
@@ -11812,7 +11762,86 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "H2")
+					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "symbols:C_Small")
+		(at 157.48 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "904d8016-7d68-4cdb-8a68-56cf8ad20878")
+		(property "Reference" "C14"
+			(at 160.02 130.8162 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100 nF"
+			(at 160.02 133.3562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 157.48 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 157.48 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 157.48 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e735366-2de3-42cb-bbc1-693f21380060")
+		)
+		(pin "2"
+			(uuid "898a86eb-dd2f-4e32-8342-9a30a988e657")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -12025,7 +12054,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "990fb0f8-660e-46ff-9301-d0ab18c29720")
-		(property "Reference" "R4"
+		(property "Reference" "R1"
 			(at 35.56 173.9899 0)
 			(effects
 				(font
@@ -12088,84 +12117,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 237.49 142.24 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a0db75c9-ab1c-41a0-8750-c1a9cc6291bc")
-		(property "Reference" "R9"
-			(at 237.49 137.16 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10 K"
-			(at 237.49 139.7 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 237.49 144.018 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 237.49 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 237.49 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25744"
-			(at 237.49 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "854e8216-325a-4d95-b9aa-3c5a72f51382")
-		)
-		(pin "2"
-			(uuid "8fe908f1-49bd-456f-bba8-ffd562a04b55")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R9")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -12248,7 +12200,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ab564c49-d9c6-4920-b519-61c169030ef9")
-		(property "Reference" "C17"
+		(property "Reference" "C8"
 			(at 146.0563 30.48 90)
 			(effects
 				(font
@@ -12291,6 +12243,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1523"
+			(at 146.05 36.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e7adf891-3d6f-4f9a-be89-c50d68829213")
 		)
@@ -12300,7 +12261,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C17")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -12382,7 +12343,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b03af402-980a-47dc-9478-e3cde379ee43")
-		(property "Reference" "J1"
+		(property "Reference" "J2"
 			(at 82.55 140.97 0)
 			(effects
 				(font
@@ -12446,7 +12407,84 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "J1")
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 237.49 152.4 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b1d57a6e-1411-45f5-952a-de458355b592")
+		(property "Reference" "R8"
+			(at 237.49 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10 K"
+			(at 237.49 149.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 237.49 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 237.49 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 237.49 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
+			(at 237.49 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9805c8f3-7dc8-4ad1-a24c-9c4f28831105")
+		)
+		(pin "1"
+			(uuid "dda4bcad-a8a3-4f73-8294-1dd6917a6fd1")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -12529,7 +12567,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3490259-06a3-4689-8ef9-52c64d7def91")
-		(property "Reference" "J2"
+		(property "Reference" "J1"
 			(at 92.71 173.99 0)
 			(effects
 				(font
@@ -12593,7 +12631,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "J2")
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -12741,7 +12779,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7ad471d-e120-4a88-9ad0-8c6c15cc1e9f")
-		(property "Reference" "C1"
+		(property "Reference" "C11"
 			(at 50.8063 39.9542 90)
 			(effects
 				(font
@@ -12802,7 +12840,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C1")
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -12827,7 +12865,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SM4007"
+		(property "Value" " MCL103A"
 			(at 139.7 142.2399 90)
 			(effects
 				(font
@@ -12881,6 +12919,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C142609"
+			(at 142.24 140.97 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1c421f04-a495-4476-9495-d1fbfd4b5d30")
 		)
@@ -12906,7 +12953,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bb3aa804-8a84-4dea-85f7-f0dd0464ccd5")
-		(property "Reference" "R8"
+		(property "Reference" "R11"
 			(at 144.78 149.8599 0)
 			(effects
 				(font
@@ -12951,6 +12998,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 142.24 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "71cb8487-b6b7-49e1-b11e-8cf5a0f534ad")
 		)
@@ -12960,145 +13016,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 142.24 27.94 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bc0c1406-2e00-4c53-9872-cfc525e6baeb")
-		(property "Reference" "R11"
-			(at 142.24 22.86 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1 M"
-			(at 142.24 25.4 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 142.24 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 142.24 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 142.24 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "3d87f84b-e8c7-49fe-88e0-16bb30eeca50")
-		)
-		(pin "1"
-			(uuid "72606655-c1dc-4bd5-af3b-e2dd11b3f26c")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "R11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 96.52 119.38 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c2df3a4d-71f9-4964-b3f7-1547e98f0901")
-		(property "Reference" "SW1"
-			(at 100.33 118.1099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AT_RESET"
-			(at 100.33 120.6499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
-			(at 101.6 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 101.6 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 96.52 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6407020f-8bba-4371-8115-eb85de0cd04d")
-		)
-		(pin "2"
-			(uuid "047b7677-f16b-44f8-aaca-f2986f218b1b")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -13304,6 +13222,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 237.49 140.97 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ca8a3804-3781-4047-ae59-cc2ccb409c4f")
+		(property "Reference" "R7"
+			(at 237.49 135.89 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10 K"
+			(at 237.49 138.43 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 237.49 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 237.49 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 237.49 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 237.49 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8c1539f2-1532-48a1-bca0-969415ae6ac4")
+		)
+		(pin "1"
+			(uuid "29a88059-c381-40c5-bc59-84a7cc143292")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "+3.3V_4")
 		(lib_id "power:+3.3V")
 		(at 219.71 132.08 0)
@@ -13447,7 +13442,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1de891a-ca86-4f4e-9d21-4d93551ea854")
-		(property "Reference" "U1"
+		(property "Reference" "U3"
 			(at 61.8841 60.96 0)
 			(effects
 				(font
@@ -13485,6 +13480,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 57.15 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14877"
 			(at 57.15 101.6 0)
 			(effects
 				(font
@@ -13592,7 +13596,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "U1")
+					(reference "U3")
 					(unit 1)
 				)
 			)
@@ -13608,7 +13612,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d3671c12-4716-43d3-b501-635d63a8f16b")
-		(property "Reference" "C2"
+		(property "Reference" "C12"
 			(at 67.3036 40.64 90)
 			(effects
 				(font
@@ -13669,7 +13673,84 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C2")
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 146.05 125.73 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d50034b8-7e82-4ced-9aa7-17c04aef229c")
+		(property "Reference" "C16"
+			(at 146.0563 119.38 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1 nF"
+			(at 146.0563 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 146.05 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 146.05 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 146.05 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1523"
+			(at 146.05 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cfe0cdc3-5518-47f3-ae48-8ff427fdf1f1")
+		)
+		(pin "2"
+			(uuid "fea00e19-c3a3-4fc8-b182-135d536ea06d")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -13751,7 +13832,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dee5023e-a68f-4bb7-8950-034bbd58ea43")
-		(property "Reference" "C11"
+		(property "Reference" "C1"
 			(at 147.3263 63.5 90)
 			(effects
 				(font
@@ -13812,7 +13893,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "C11")
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -13894,7 +13975,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e584a8e4-ad3a-43bc-89d0-a483fd00ede7")
-		(property "Reference" "R1"
+		(property "Reference" "R6"
 			(at 99.06 106.6799 0)
 			(effects
 				(font
@@ -13948,7 +14029,7 @@
 		(instances
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "R1")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -14082,6 +14163,85 @@
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 96.52 119.38 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f01f4fd2-b517-4685-90fd-68eb2e7dcd3e")
+		(property "Reference" "SW3"
+			(at 100.33 118.1099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "RESET"
+			(at 100.33 120.6499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_RS282G05A3"
+			(at 101.6 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 101.6 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2888954"
+			(at 96.52 119.38 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ee8aa138-7dfe-4b2f-8206-3b9d872b06b6")
+		)
+		(pin "2"
+			(uuid "d449e19d-5e83-4ef7-bdf5-f7a65faaf09a")
+		)
+		(instances
+			(project "plantMonitorCopy"
+				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
+					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -14270,94 +14430,6 @@
 			(project "plantMonitorCopy"
 				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
 					(reference "#PWR07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Timer:TLC555xPS")
-		(at 187.96 139.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f4d3643a-4383-4788-9a3e-00d5def33826")
-		(property "Reference" "U4"
-			(at 190.1541 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TLC555xPS"
-			(at 190.1541 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm"
-			(at 204.47 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlc555.pdf"
-			(at 209.55 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single LinCMOS Timer, 555 compatible, VSSOP-8"
-			(at 187.96 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "e45232ef-8f79-40db-a8f2-cc918e98e001")
-		)
-		(pin "8"
-			(uuid "b5021506-f964-48c7-bc75-5a1b9e67f41d")
-		)
-		(pin "1"
-			(uuid "5f9f36d6-0fe7-43f3-80a0-80bc20924904")
-		)
-		(pin "5"
-			(uuid "7747fbeb-1935-44cb-839a-5612fb292290")
-		)
-		(pin "3"
-			(uuid "6393d2d7-9b4e-46c9-8036-d7c91113409a")
-		)
-		(pin "4"
-			(uuid "5e18cae1-05e3-40b9-bcb1-ded753a95fe6")
-		)
-		(pin "2"
-			(uuid "b1f9e3e0-18ef-4bd4-a251-618d58f9036f")
-		)
-		(pin "7"
-			(uuid "04805455-a663-4007-8bf4-9ff9660b9cd7")
-		)
-		(instances
-			(project "plantMonitorCopy"
-				(path "/5e57003a-9559-4c4c-9b07-4edd81ec09de"
-					(reference "U4")
 					(unit 1)
 				)
 			)
