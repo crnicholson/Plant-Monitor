@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 36,
+    "active_layer": 37,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -55,7 +55,6 @@
       27,
       28,
       29,
-      30,
       32,
       33,
       34,
@@ -64,7 +63,7 @@
       39,
       40
     ],
-    "visible_layers": "ffdf7df_7ffffffe",
+    "visible_layers": "ffcffdf_7ffffffe",
     "zone_display_mode": 0
   },
   "git": {
@@ -74,7 +73,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "groundMonitor.kicad_prl",
+    "filename": "plantMonitor.kicad_prl",
     "version": 3
   },
   "project": {
