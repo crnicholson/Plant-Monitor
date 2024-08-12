@@ -17,9 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // Enables
-#define DEVMODE   // Enable and disable the serial output.
-#define USE_BME   // Enable and disable the BME280.
-#define FAST_LORA // Enable and disable fast LoRa communication, disregarding other LoRa values.
+#define DEVMODE         // Enable and disable the serial output.
+#define USE_BME         // Enable and disable the BME280.
+#define FAST_LORA       // Enable and disable fast LoRa communication, disregarding other LoRa values.
+#define CHANGE_TX_POWER // Enable and disable changing the transmit power based on the RSSI.
 
 // Pins.
 #define LED 13           // Onboard LED.
@@ -43,3 +44,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define DEVICE_PASS 1234 // Do not change this value.
 
 #define GET_RSSI_RATE 1440 // Minutes between getting RSSI checks to lower and raise the power consumption.
+
+// Dynamically change the transmit power based on the RSSI.
+#define RSSI_THRESHOLD_HIGH -70 // Strong signal. Getting over this will lower the TX power.
+#define RSSI_THRESHOLD_LOW -90  // Weak signal. Getting over this will raise the TX power.

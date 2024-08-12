@@ -62,11 +62,13 @@ void loop() {
   packet.soilHumidity = getWaterLevel();
   packet.volts = getVoltage();
 
-  sendData(packet);
-
+  bool packet.requestRSSI = false;
   if (millis() > lastRSSI + GET_RSSI_RATE) {
-    getRSSI();
+    lastRSSI = millis();
+    packet.requestRSSI = true;
   }
+
+  sendData(packet);
 
   Sleep.deeplyFor((60 / PACKET_FREQUENCY) * 60000); // Sleep the MCU for the specified time between packets.
 }

@@ -31,6 +31,7 @@ long rxCount;
 struct data {
   float soilHumidity, airHumidity, temperature, pressure, volts;
   long deviceID, txCount, frequency;
+  bool requestRSSI;
 } receivedData;
 
 void setup() {
@@ -137,6 +138,13 @@ void loop() {
 #endif
 
         http.end(); // Free resources.
+
+        if (recievedData.requestRSSI) {
+          LoRa.beginPacket();
+          LoRa.write((byte *)&receivedData.deviceID, sizeof(long));
+          LoRa.write((byte *)&LoRa.packetRssi(), sizeof(long));
+          LoRa.endPacket(); // Don't use async send. This also sends the data.
+        }
       } else {
 #ifdef DEVMODE
         Serial.println("WiFi Disconnected.");
