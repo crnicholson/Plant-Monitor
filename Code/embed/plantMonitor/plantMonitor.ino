@@ -29,6 +29,8 @@ SimpleSleep Sleep;
 
 struct data packet;
 
+long lastRSSI;
+
 void setup() {
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
@@ -61,6 +63,10 @@ void loop() {
   packet.volts = getVoltage();
 
   sendData(packet);
+
+  if (millis() > lastRSSI + GET_RSSI_RATE) {
+    getRSSI();
+  }
 
   Sleep.deeplyFor((60 / PACKET_FREQUENCY) * 60000); // Sleep the MCU for the specified time between packets.
 }

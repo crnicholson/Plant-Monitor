@@ -51,6 +51,55 @@ void sendData(struct data &newPacket) {
   }
 
   LoRa.beginPacket();
-  LoRa.write((byte *)&newPacket, sizeof(newPacket));
-  LoRa.endPacket(true); // Use async send.
+
+  byte *packetBytes = (byte *)&newPacket;
+  for (int i = 0; i < sizeof(newPacket); i++) {
+    byte encodedByte = hammingEncode(packetBytes[i]);
+    LoRa.write(encodedByte);
+  }
+
+  LoRa.endPacket(); // Don't use async send.
+  LoRa.end();       // This is supposedly better than LoRa.sleep().
+}
+
+byte hammingEncode(byte data) {
+  byte p1 = ((data >> 2) & 0x1) ^ ((data >> 1) & 0x1) ^ ((data >> 0) & 0x1);
+  byte p2 = ((data >> 3) & 0x1) ^ ((data >> 1) & 0x1) ^ ((data >> 0) & 0x1);
+  byte p3 = ((data >> 3) & 0x1) ^ ((data >> 2) & 0x1) ^ ((data >> 0) & 0x1);
+
+  byte hamming = (p1 << 6) | (p2 << 5) | (p3 << 4) | (data & 0xF);
+  return hamming;
+}
+
+void sendForRSSI() {
+  while (LoRa.beginPacket() == 0) {
+    delay(10);
+  }
+
+  LoRa.beginPacket();
+  LoRa.write((byte *)&DEVICE_ID, sizeof(long));
+  LoRa.endPacket(); // Don't use async send.
+  while (LoRa.parsePacket() < 0) {
+    longBlink(LED);
+#ifdef DEVMODE
+    Serial.println("Sending for RSSI, waiting for response.");
+#endif
+    long recievedID;
+    lora.readBytes((byte *)&recievedID, sizeof(long));
+    if (recievedID == DEVICE_ID) {
+    } else {
+#ifdef DEVMODE
+      Serial.println("Received ID does not match the device ID.");
+#endif
+      longBlink(LED);
+    }
+  }
+}
+
+void receiveRSSI() {
+  int packetSize = LoRa.parsePacket(); // Parse packet.
+
+  if (packetSize > 0) {
+    LoRa.readBytes(receivedBytes, sizeof(long));
+  }
 }

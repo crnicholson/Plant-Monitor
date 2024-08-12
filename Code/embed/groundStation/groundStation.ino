@@ -93,12 +93,19 @@ void loop() {
 
   if (packetSize > 0) {
     shortBlink(LED);
-    LoRa.readBytes((byte *)&receivedData, sizeof(receivedData));
+
+    byte receivedBytes[sizeof(receivedData) * 2]; // Array to hold received encoded bytes.
+    LoRa.readBytes(receivedBytes, packetSize);
+
+    // Decode the received data.
+    for (int i = 0; i < sizeof(receivedData); i++) {
+      receivedData[i] = hammingDecode(receivedBytes[i]);
+    }
 
     rxCount++;
 
     // Check if the packet is a valid packet.
-    if (sizeof(receivedData) == packetSize) {
+    if (sizeof(receivedData) == packetSize / 2) {
       shortBlink(LED);
       if (WiFi.status() == WL_CONNECTED) {
         WiFiClient client;
@@ -154,4 +161,31 @@ void longBlink(int pin) {
   delay(1000);
   digitalWrite(pin, LOW);
   delay(1000);
+}
+
+// Function to decode Hamming(7,4) code and correct single-bit errors.
+byte hammingDecode(byte encoded) {
+  byte p1 = (encoded >> 6) & 0x1;
+  byte p2 = (encoded >> 5) & 0x1;
+  byte p3 = (encoded >> 4) & 0x1;
+  byte d1 = (encoded >> 3) & 0x1;
+  byte d2 = (encoded >> 2) & 0x1;
+  byte d3 = (encoded >> 1) & 0x1;
+  byte d4 = (encoded >> 0) & 0x1;
+
+  // Calculate syndrome bits.
+  byte s1 = p1 ^ d1 ^ d2 ^ d4;
+  byte s2 = p2 ^ d1 ^ d3 ^ d4;
+  byte s3 = p3 ^ d2 ^ d3 ^ d4;
+
+  // Determine error position.
+  byte errorPos = (s3 << 2) | (s2 << 1) | s1;
+
+  // Correct the error if needed.
+  if (errorPos > 0 && errorPos <= 7) {
+    encoded ^= (1 << (7 - errorPos));
+  }
+
+  // Return the original 4 data bits.
+  return (d1 << 3) | (d2 << 2) | (d3 << 1) | d4;
 }
