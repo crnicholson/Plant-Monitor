@@ -39,4 +39,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #define BANDWIDTH 62.5E3    // Bandwidth of the LoRa.
 #define PACKET_FREQUENCY 30 // How many packets of data per hour?
 
-#define DEVICE_ID 1234 // ID of the device, used to identify the device.
+#define DEVICE_ID 1234   // ID of the device, used to identify the device. Do not change this value.
+#define DEVICE_PASS 1234 // Do not change this value.
+
+#define GET_RSSI_RATE 1440 // Minutes between getting RSSI checks to lower and raise the power consumption.

@@ -9,3 +9,5 @@ struct data {
 };
 
 extern struct data packet;
+
+extern long lastRSSI;
