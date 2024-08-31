@@ -7961,7 +7961,7 @@
 				)
 			)
 		)
-		(property "Value" "ESP32-C3-MINI-1-N4"
+		(property "Value" "ESP32-C3-MINI-1-H4"
 			(at 71.12 106.68 0)
 			(effects
 				(font
@@ -7990,6 +7990,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 50.8 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2934569 "
 			(at 50.8 113.03 0)
 			(effects
 				(font
