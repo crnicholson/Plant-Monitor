@@ -1,7 +1,8 @@
 # Plant Monitor
 
-![Plant Monitor web interface](https://cloud-o9908n03p-hack-club-bot.vercel.app/0image.png)
-![Plant Monitor circuit board](https://github.com/crnicholson/Plant-Monitor/blob/main/Media/pcb.png)
+<img src="https://github.com/crnicholson/Plant-Monitor/blob/main/Media/pcb.png" alt="Glider" width="300"/> | <img src="https://github.com/crnicholson/Plant-Monitor/blob/main/Media/dashboard.png" alt="PCB" width="300"/>
+-- | --
+<i>Plant Monitor transmitter circuit board.</i> | <i>Web interface login page.</i>
 
 ## About
 
